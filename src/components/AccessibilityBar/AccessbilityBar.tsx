@@ -6,15 +6,13 @@ import {
     Typography,
     useTheme,
 } from "@mui/material";
-import React, { useState } from "react";
+import React from "react";
 import { spacing, tokens } from "../../theme";
 import { Contrast, TextDecrease, TextIncrease } from "@mui/icons-material";
 
 const AccessibilityBar: React.FC = () => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
-
-    const [zoomLevel, setZoomLevel] = useState(1);
 
     const handleZoomIn = () => {
         const root = document.documentElement;
@@ -45,25 +43,33 @@ const AccessibilityBar: React.FC = () => {
                 alignItems: "center",
             }}
         >
-            <Stack direction={"row"} gap={2}>
-                <a href="#inicioConteudo">
-                    <Typography variant="body2">
-                        Ir para conteúdo [1]
-                    </Typography>
+            <Stack direction={"row"} gap={2} sx={{ fontSize: "0.8em" }}>
+                <a
+                    href="#inicioConteudo"
+                    role="navigation"
+                    aria-label="Ir para conteúdo"
+                >
+                    Ir para conteúdo [1]
                 </a>
 
-                <a href="#menuPrincipal">
-                    <Typography variant="body2">Ir para o menu [2]</Typography>
+                <a
+                    href="#menuPrincipal"
+                    role="navigation"
+                    aria-label="Ir para o menu principal"
+                >
+                    Ir para o menu [2]
                 </a>
 
-                <a href="#busca">
-                    <Typography variant="body2">Ir para a busca [3]</Typography>
+                <a href="#busca" role="navigation" aria-label="Ir para a busca">
+                    Ir para a busca [3]
                 </a>
 
-                <a href="#rodape">
-                    <Typography variant="body2">
-                        Ir para o rodapé [4]
-                    </Typography>
+                <a
+                    href="#rodape"
+                    role="navigation"
+                    aria-label="Ir para o rodapé"
+                >
+                    Ir para o rodapé [4]
                 </a>
             </Stack>
             <Stack direction={"row"} gap={2}>

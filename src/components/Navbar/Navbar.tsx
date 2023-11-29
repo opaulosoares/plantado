@@ -52,7 +52,8 @@ const Navbar: React.FC = () => {
 
                 <NavLink
                     to="/"
-                    aria-description="Botão para retornar para a página inicial"
+                    aria-label="Voltar para a página inicial"
+                    aria-description="Botão para retornar para a página inicia ativado por um clique único"
                     aria-details="Logo da empresa com ilustração de uma folha de planta dentro de um círculo e texto escrito Plantado à sua direita."
                     style={{
                         display: "flex",
