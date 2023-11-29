@@ -10,6 +10,9 @@ import { LightMode, MenuRounded, Nightlight } from "@mui/icons-material";
 import { motion } from "framer-motion";
 import PlantadoLogo from "../PlantadoLogo/PlantadoLogo";
 import { NavLink } from "react-router-dom";
+import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
+import UserAvatarDrawer from "../UserAvatarDrawer/UserAvatarDrawer";
+import { useSelector } from "react-redux";
 
 const Navbar: React.FC = () => {
     const colorMode = useContext(ColorModeContext);
@@ -21,11 +24,6 @@ const Navbar: React.FC = () => {
         checkLocalStorageTheme()
     );
 
-    const [isClient, setIsClient] = useState(false);
-
-    useEffect(() => {
-        setIsClient(true);
-    }, []);
     return (
         <nav
             style={{
@@ -66,49 +64,7 @@ const Navbar: React.FC = () => {
                         style={{ width: 128 }}
                     />
                 </NavLink>
-
-                <motion.div
-                    initial={{ y: 10, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: -10, opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                    style={{
-                        display: "flex",
-                        flexDirection: "row",
-                        alignItems: "center",
-                    }}
-                    aria-description="Botão para alternar entre os modos de cores claro e escuro"
-                    aria-details="Ícone de uma lua e um sol, representando os modos de cores escuro e claro, respectivamente."
-                >
-                    <Stack
-                        direction="row"
-                        justifyContent="center"
-                        alignItems="center"
-                    >
-                        {darkModeChecked ? (
-                            <Nightlight sx={{ fill: colors.neutral[12] }} />
-                        ) : (
-                            <motion.div
-                                initial={{ y: -10, opacity: 0 }}
-                                animate={{ y: 0, opacity: 1 }}
-                                transition={{ duration: 0.2 }}
-                                style={{ display: "flex" }}
-                            >
-                                <LightMode sx={{ fill: colors.neutral[12] }} />
-                            </motion.div>
-                        )}
-
-                        <Switch
-                            checked={darkModeChecked}
-                            onChange={(
-                                event: React.ChangeEvent<HTMLInputElement>
-                            ) => {
-                                setDarkModeChecked(event.target.checked);
-                            }}
-                            onClick={colorMode.toggleColorMode}
-                        />
-                    </Stack>
-                </motion.div>
+                <UserAvatarDrawer />
             </Stack>
         </nav>
     );

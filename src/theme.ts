@@ -253,7 +253,7 @@ export const themeSettings = (mode: PaletteMode) => {
             ...(mode === "dark"
                 ? ({
                       primary: {
-                          main: colors.neutral[12],
+                          main: colors.grass[12],
                           contrastText: colors.neutral[1],
                       },
                       secondary: {
@@ -269,7 +269,7 @@ export const themeSettings = (mode: PaletteMode) => {
                   } as ThemeOptions["palette"])
                 : ({
                       primary: {
-                          main: colors.neutral[12],
+                          main: colors.grass[12],
                           contrastText: colors.neutral[1],
                       },
                       secondary: {
@@ -286,7 +286,7 @@ export const themeSettings = (mode: PaletteMode) => {
         } as ThemeOptions["palette"],
         typography: {
             allVariants: {
-                color: colors.grass[12],
+                color: colors.neutral[12],
                 fontFamily: "Inter",
             },
             h1: {
@@ -302,7 +302,7 @@ export const themeSettings = (mode: PaletteMode) => {
             },
             h3: {
                 fontSize: "1.5rem",
-                fontWeight: 700,
+                fontWeight: 400,
                 lineHeight: 1.2,
             },
             h4: {

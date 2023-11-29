@@ -1,11 +1,4 @@
-import {
-    Box,
-    IconButton,
-    Paper,
-    Stack,
-    Typography,
-    useTheme,
-} from "@mui/material";
+import { IconButton, Paper, Stack, Typography, useTheme } from "@mui/material";
 import React from "react";
 import { spacing, tokens } from "../../theme";
 import { Contrast, TextDecrease, TextIncrease } from "@mui/icons-material";
@@ -35,15 +28,24 @@ const AccessibilityBar: React.FC = () => {
         <Paper
             sx={{
                 width: "100svw",
-                bgcolor: colors.grass[5],
+                bgcolor: colors.grass[7],
                 px: spacing.GLOBAL_HORIZONTAL_MARGIN,
-                py: 1,
+                py: 0.5,
                 display: "flex",
-                justifyContent: "space-between",
+                justifyContent: { xs: "flex-end", md: "space-between" },
                 alignItems: "center",
             }}
         >
-            <Stack direction={"row"} gap={2} sx={{ fontSize: "0.8em" }}>
+            <Stack
+                direction={"row"}
+                gap={2}
+                sx={{
+                    fontSize: "0.8em",
+                    fontWeight: 500,
+                    fontFamily: "Inter",
+                    display: { xs: "none", md: "flex" },
+                }}
+            >
                 <a
                     href="#inicioConteudo"
                     role="navigation"
