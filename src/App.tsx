@@ -3,6 +3,7 @@ import { ColorModeContext, useMode } from "./theme";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Homepage from "./pages/Homepage/Homepage";
 import SuccessPage from "./pages/SucessPage/SucessPage";
+import Error404 from "./pages/Error404/Error404";
 import VLibras from "@djpfs/react-vlibras";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Homepage />} />
                         <Route path="/success" element={<SuccessPage />} />
+                        <Route path="*" element={<Error404 />} />
                     </Routes>
                 </Router>
             </ThemeProvider>
