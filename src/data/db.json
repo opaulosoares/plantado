@@ -1,0 +1,282 @@
+{
+    "produtos": {
+        "plantas": [
+            {
+                "id": 1,
+                "name": "Orquídea Branca",
+                "image": "https://ibb.co/KxkJv5S",
+                "description": "A Orquídea Branca é uma planta elegante e delicada, conhecida por sua beleza exuberante. Suas flores brancas simbolizam pureza e tranquilidade, tornando-a uma escolha popular para decoração e presentes.",
+                "subcategory": "Flor",
+                "price": 39.99,
+                "onStock": 20,
+                "luminosidade": "media",
+                "tamanho": "medio",
+                "manutenção": "moderada",
+                "alt_text": "Uma orquídea branca com longas hastes e folhas verde-escuras. Suas flores delicadas têm formato de cascata, criando uma imagem elegante."
+            },
+            {
+                "id": 2,
+                "name": "Alecrim",
+                "image": "https://ibb.co/p0xGZ1b",
+                "description": "O Alecrim é uma erva aromática muito utilizada na culinária devido ao seu sabor único e aroma fresco. Além de suas propriedades culinárias, o Alecrim é conhecido por suas características medicinais e pode ser cultivado tanto em jardins quanto em vasos.",
+                "subcategory": "Especiaria",
+                "price": 24.99,
+                "onStock": 15,
+                "luminosidade": "alta",
+                "tamanho": "Pequeno",
+                "manutenção": "baixa",
+                "alt_text": "Um arbusto de alecrim com folhas finas e verdes, liberando um aroma fresco e herbal. Suas folhas são ideais para uso culinário, proporcionando sabor e fragrância"
+            },
+            {
+                "id": 3,
+                "name": "Suculenta",
+                "image": "https://ibb.co/G9png07",
+                "description": "As suculentas são plantas adaptáveis e ideais para ambientes internos. Com suas folhas carnudas e variedade de formas, as suculentas são escolhas populares para decoração de interiores. Elas requerem pouca água e são fáceis de cuidar.",
+                "category": "plantas",
+                "subcategory": "Interior",
+                "price": 29.99,
+                "onStock": 25,
+                "luminosidade": "baixa",
+                "tamanho": "Pequeno",
+                "manutenção": "baixa",
+                "alt_text": "Uma suculenta de pequeno porte, cultivada em um vaso. Suas folhas carnudas exibem uma tonalidade verde vibrante, criando uma planta compacta e fácil de cuidar."
+            },
+            {
+                "id": 4,
+                "name": "Aloe Vera (Babosa)",
+                "image": "https://ibb.co/094SLrr",
+                "description": "A Aloe Vera, também conhecida como Babosa, é uma planta conhecida por suas propriedades medicinais e benefícios para a pele. Suas folhas contêm um gel transparente utilizado para aliviar queimaduras e irritações cutâneas. Além disso, a Babosa é fácil de cuidar e adapta-se bem a ambientes internos.",
+                "category": "plantas",
+                "subcategory": "Interior",
+                "price": 34.99,
+                "onStock": 18,
+                "luminosidade": "media",
+                "tamanho": "medio",
+                "manutenção": "moderada",
+                "alt_text": "Uma planta de Aloe Vera, conhecida por suas folhas suculentas e pontiagudas que partem do centro da planta, e que contêm uma seiva gelatinosa."
+            },
+            {
+                "id": 5,
+                "name": "Muda de Antúrio Vermelho",
+                "image": "https://ibb.co/nj9VF04",
+                "description": "O Antúrio Vermelho é uma planta de flores vibrantes que acrescenta cor e elegância aos espaços. Suas flores em tons de vermelho são destaque em qualquer ambiente. Cultivar uma muda de Antúrio Vermelho é uma excelente escolha para quem busca uma planta de fácil manutenção com uma beleza duradoura.",
+                "category": "plantas",
+                "subcategory": "Flor",
+                "price": 28.99,
+                "onStock": 22,
+                "luminosidade": "alta",
+                "tamanho": "medio",
+                "manutenção": "moderada",
+                "alt_text": "Um antúrio vermelho com folhas verde escuras e flores vermelhas em formato de coração."
+            },
+            {
+                "id": 6,
+                "name": "Lírio Asiático Rosa",
+                "image": "https://ibb.co/7yGjRnT",
+                "description": "O Lírio Asiático Rosa é uma escolha encantadora para quem aprecia flores elegantes. Suas pétalas em tons de rosa suave adicionam um toque romântico a qualquer espaço. Cultivar este lírio proporciona um jardim cheio de beleza e delicadeza.",
+                "category": "plantas",
+                "subcategory": "Flor",
+                "price": 31.99,
+                "onStock": 17,
+                "luminosidade": "media",
+                "tamanho": "medio",
+                "manutenção": "moderada",
+                "alt_text": "Um Lírio com folhas verdes brilhantes e flores compridas compostas por 6 pétalas em diferentes tons de rosa"
+            },
+            {
+                "id": 7,
+                "name": "Amaryllis Rosa",
+                "image": "https://ibb.co/fd43v5V",
+                "description": "A Amaryllis Rosa é uma planta exuberante com flores grandes e vibrantes. Sua coloração rosa intensa é um verdadeiro destaque em qualquer jardim. Cultivar uma Amaryllis adiciona charme e elegância ao ambiente, proporcionando uma experiência floral única.",
+                "category": "plantas",
+                "subcategory": "Flor",
+                "price": 35.99,
+                "onStock": 19,
+                "luminosidade": "alta",
+                "tamanho": "medio",
+                "manutenção": "moderada",
+                "alt_text": "Uma amaryllis rosa em plena floração, exibindo um caule comprido sem folhas, contendo no final flores grandes e vibrantes em tons de rosa"
+            },
+            {
+                "id": 8,
+                "name": "Lírio da Paz",
+                "image": "https://ibb.co/5FnhGVv",
+                "description": "O Lírio da Paz é uma planta conhecida por sua elegância e capacidade de prosperar em ambientes internos com pouca luz. Suas folhas verdes exuberantes e flores brancas proporcionam um toque de serenidade ao espaço. Cuidar de um Lírio da Paz é uma experiência gratificante e tranquila.",
+                "category": "plantas",
+                "subcategory": "Flor",
+                "price": 26.99,
+                "onStock": 23,
+                "luminosidade": "baixa",
+                "tamanho": "medio",
+                "manutenção": "baixa",
+                "alt_text": "A imagem exibe um Lírio da Paz, uma planta que possui muitas folhas verdes sinuosas e algumas flores brancas em formato oval. "
+            }
+        ],
+        "vaso": [
+            {
+                "id": 9,
+                "name": "Vaso de Plástico Preto",
+                "image": "https://ibb.co/gFtmm2d",
+                "subcategory": "plastico",
+                "description": "Um vaso de plástico preto, ideal para o cultivo de plantas. Leve, durável e fácil de manusear, este vaso é perfeito para realçar a beleza das suas plantas.",
+                "price": 12.99,
+                "onStock": 30,
+                "alt_text": "Um vaso de plástico simples, redondo, preto e sem detalhes."
+            },
+            {
+                "id": 10,
+                "name": "Vaso Branco Florido",
+                "image": "https://i.ibb.co/kqjcFtH/lilac-3369269-640.jpg",
+                "subcategory": "ceramica",
+                "description": "Um vaso de cerâmica perfeito para o cultivo de plantas interiores, com uma textura rústica para seu ambiente.",
+                "price": 22.99,
+                "onStock": 30,
+                "alt_text": "Um vaso de cerâmica branco em formato do número 8, com uma alça para segurá-lo, em seu corpo há flores azuis e seu interior é todo azul."
+            },
+            {
+                "id": 11,
+                "name": "Vaso de Cerâmica Azul",
+                "image": "https://i.ibb.co/1Q3L815/tropical-4008043-640.png",
+                "subcategory": "ceramica",
+                "description": "Um vaso de cerâmica rico em detalhes, ideal para um ambiente exterior, como sacadas de apartamentos ou jardins de quintal.",
+                "price": 35.99,
+                "onStock": 30,
+                "alt_text": "Um vaso de cerâmica azul turquesa, com arte abstrata misturando vermelho e roxo, além de detalhes pretos e dourados em suas bordas."
+            },
+            {
+                "id": 12,
+                "name": "Vaso de Inox",
+                "image": "https://i.ibb.co/fYX8B5C/tulip-3170494-640.jpg",
+                "subcategory": "inox",
+                "description": "Um vaso de aço inox minimalista, ideal para pessoas que não gostam de extravagância.",
+                "price": 12.99,
+                "onStock": 30,
+                "alt_text": "Um vaso de aço inox, em formato de caneco e com alças marrons feitas de fibras de plástico que simulam madeira. Seu visual minimalista é ideal para pessoas que não gostam de extravagância."
+            },
+            {
+                "id": 13,
+                "name": "Vaso de Plástico Florido",
+                "image": "https://i.ibb.co/m6C4xPz/succulent-plant-3520371-640.jpg",
+                "subcategory": "plastico",
+                "description": "Um vaso de plástico ",
+                "price": 12.99,
+                "onStock": 30,
+                "alt_text": "Um vaso branco com o anel superior marrom imitando madeira. A área branca possui uma arte composta de flores e estrelas, misturando tons azuis, vermelhos e amarelos."
+            }
+        ],
+        "rega": [
+            {
+                "id": 14,
+                "name": "Regador de Mão Verde",
+                "image": "https://ibb.co/yqVs85g",
+                "subcategory": "regador",
+                "description": "Um regador de mão verde, projetado para facilitar a irrigação de suas plantas. Seu design ergonômico torna a rega uma tarefa simples e eficiente.",
+                "price": 8.99,
+                "onStock": 15,
+                "alt_text": "Um regador de mão de cor verde, possuindo alça para segurá-lo e bico removível, sua capacidade é de 10 litros."
+            },
+            {
+                "id": 15,
+                "name": "Regador de Mão Rosa",
+                "image": "https://i.ibb.co/tPgcXHx/lily-of-the-valley-4166984-640.jpg",
+                "subcategory": "regador",
+                "description": "Um regador de mão rosa, projetado para facilitar a irrigação de suas plantas. Seu design ergonômico torna a rega uma tarefa simples e eficiente.",
+                "price": 18.99,
+                "onStock": 15,
+                "alt_text": "Um regador de mão de cor rosa, sua superfície é repleta de flores em alto relevo de diferentes tamanhos, todas de cor rosa."
+            },
+            {
+                "id": 16,
+                "name": "Regador de Mão Prateado",
+                "image": "https://i.ibb.co/Ws2YsWx/watering-can-7709917-640.jpg",
+                "subcategory": "regador",
+                "description": "Um regador de mão prateado, projetado para facilitar a irrigação de suas plantas. Seu design ergonômico torna a rega uma tarefa simples e eficiente.",
+                "price": 5.99,
+                "onStock": 15,
+                "alt_text": "Um regador de mão prateado de superfície irregular e bico removível, seu design não convencional se encaixa para ambientes rústicos, como chalés e casas de madeira."
+            },
+            {
+                "id": 17,
+                "name": "Regador de Mão Turquesa",
+                "image": "https://i.ibb.co/K6gm0Zz/snowdrop-2129403-640.jpg",
+                "subcategory": "regador",
+                "description": "Um regador de mão verde, projetado para facilitar a irrigação de suas plantas. Seu design ergonômico torna a rega uma tarefa simples e eficiente.",
+                "price": 8.99,
+                "onStock": 15,
+                "alt_text": "Um regador de mão de cor turquesa e sem detalhes em sua superfície. Possui alça para segurá-lo e bico removível, seu tamanho pequeno e sua cor combinam com ambientes mais calmos e minimalistas."
+            },
+            {
+                "id": 18,
+                "name": "Regador de Mão Verde",
+                "image": "https://i.ibb.co/zFMC4PK/watering-can-3547861-640.jpg",
+                "subcategory": "regador",
+                "description": "Um regador de mão verde, projetado para facilitar a irrigação de suas plantas. Seu design ergonômico torna a rega uma tarefa simples e eficiente. Sua capacidade é de 10 Litros",
+                "price": 18.99,
+                "onStock": 15,
+                "alt_text": "Um regador de mão de cor verde com bico preto removível. Possui design simples uma alça grande para facilitar o manuseio. Não possui detalhes em sua superfície."
+            }
+        ],
+        "acessorio": [
+            {
+                "id": 19,
+                "name": "Tesoura de Poda Branca",
+                "image": "https://ibb.co/s915TyB",
+                "subcategory": "tesoura",
+                "description": "Uma tesoura de poda branca com detalhes laranjas, ideal para cuidar das suas plantas com precisão. Leve e afiada, esta tesoura é perfeita para cortes delicados.",
+                "price": 14.99,
+                "onStock": 12,
+                "alt_text": "Uma tesoura de poda branca com detalhes laranjas na área em que se coloca a mão."
+            },
+            {
+                "id": 20,
+                "name": "Rastelo Azul",
+                "image": "https://i.ibb.co/5xwZrXz/leaves-broom-3406799-640.jpg",
+                "subcategory": "rastelo",
+                "description": "Um rastelo com cabo de madeira e cabeça de aço inox. Perfeito para preparar sua plantação.",
+                "price": 24.99,
+                "onStock": 12,
+                "alt_text": "Um rastelo que possui um cabo de madeira clara semelhante ao de uma vassoura, sua cabeça é inteira em aço inox e azul, formada por 11 dentes."
+            },
+            {
+                "id": 21,
+                "name": "Pá Vermelha",
+                "image": "https://i.ibb.co/gwtq1TT/gardening-2448134-640.jpg",
+                "subcategory": "pa",
+                "description": "Uma pequena pá vermelha, perfeita para pequenas plantações, como hortinhas e cultivo de temperos.",
+                "price": 11.99,
+                "onStock": 12,
+                "alt_text": "Uma pequena pá vermelha com comprimento de 30cm, seu design é simples e não possui detalhes, em sua base um buraco para que possa ser pendurada em paredes."
+            },
+            {
+                "id": 22,
+                "name": "Medidor de Umidade",
+                "image": "https://i.ibb.co/X7HVxML/the-soil-profile-2412916-1280.jpg",
+                "subcategory": "sensores",
+                "description": "Um medidor de umidade para medir e promover um solo de qualidade para suas plantas.",
+                "price": 54.99,
+                "onStock": 12,
+                "alt_text": "Um medidor de umidade em formato de cubo e funcionamento analógico, sua superfície é azul e o display é branco. O display é composto por um arco e um ponteiro vermelho, a posição do ponteiro indica se o solo está úmido ou seco."
+            },
+            {
+                "id": 23,
+                "name": "Regador Automático Giratório",
+                "image": "https://i.ibb.co/1G3L1xy/water-sprinklers-880970-640.jpg",
+                "subcategory": "rega",
+                "description": "Um regador automático com 2 bicos. Sua base gira para oferecer uma cobertura de até 10 metros de distância.",
+                "price": 32.99,
+                "onStock": 12,
+                "alt_text": "Um regador automático feito inteiramente de metal, possui cor prateada e é composto por uma base giratória e uma cabeça com 2 saídas de água que rotacionam rapidamente."
+            },
+            {
+                "id": 24,
+                "name": "Bico Especial para Mangueiras",
+                "image": "https://i.ibb.co/0m0rqgV/hose-5473324-640.jpg",
+                "subcategory": "rega",
+                "description": "Esse bico possui 8 diferentes tipos de saída de água, que oferecem diferentes pressões e vazões de água, se adaptando perfeitamente à sua plantação",
+                "price": 5.99,
+                "onStock": 12,
+                "alt_text": "Um bico em formato de lanterna, a área para segurar é de cor cinza com um gatilho preto e vermelho, sua cabeça é preta e vermelha, e possui diferentes opções de saída de água."
+            }
+        ]
+    }
+}

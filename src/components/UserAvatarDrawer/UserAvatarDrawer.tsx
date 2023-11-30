@@ -7,13 +7,14 @@ import {
     Menu,
     MenuItem,
     MenuList,
+    Stack,
     Typography,
 } from "@mui/material";
 import React, { useState } from "react";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 import { Logout, Person } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
-import { loggedIn, loggedOut } from "../../app/store";
+import { RootState, loggedIn, loggedOut } from "../../app/store";
 
 const UserAvatarDrawer: React.FC = () => {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -21,6 +22,7 @@ const UserAvatarDrawer: React.FC = () => {
     const dispatch = useDispatch();
 
     const isLoggedIn = useSelector((state: any) => state.user.isLoggedIn);
+    const userData = useSelector((state: RootState) => state.user);
 
     const handleClicked = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
@@ -32,13 +34,23 @@ const UserAvatarDrawer: React.FC = () => {
 
     return (
         <>
-            <IconButton
+            <Stack
+                direction={"row"}
+                alignItems={"center"}
+                gap={1}
                 aria-controls={open ? "user-menu" : undefined}
                 aria-haspopup="true"
                 onClick={handleClicked}
+                sx={{ cursor: "pointer" }}
             >
                 <Avatar />
-            </IconButton>
+                <Stack direction={"column"}>
+                    <Typography variant="h4">{userData.user.name}</Typography>
+                    <Typography variant="body1">
+                        {userData.user.email}
+                    </Typography>
+                </Stack>
+            </Stack>
 
             <Menu
                 anchorEl={anchorEl}
@@ -49,38 +61,21 @@ const UserAvatarDrawer: React.FC = () => {
                     horizontal: "center",
                 }}
             >
-                <MenuItem>
-                    {isLoggedIn ? (
-                        <Typography variant="h4">Olá, user</Typography>
-                    ) : (
-                        <Button
-                            variant="contained"
-                            color="primary"
-                            onClick={() => dispatch(loggedIn())}
-                        >
-                            Entrar
-                        </Button>
-                    )}
-                </MenuItem>
                 <MenuList>
-                    {isLoggedIn ? (
-                        <MenuItem>
-                            <ListItemIcon>
-                                <Person />
-                            </ListItemIcon>
-                            <ListItemText>Meu perfil</ListItemText>
-                        </MenuItem>
-                    ) : null}
+                    <MenuItem>
+                        <ListItemIcon>
+                            <Person />
+                        </ListItemIcon>
+                        <ListItemText>Meu perfil</ListItemText>
+                    </MenuItem>
 
                     <ThemeSwitcher />
-                    {isLoggedIn ? (
-                        <MenuItem onClick={() => dispatch(loggedOut())}>
-                            <ListItemIcon>
-                                <Logout fontSize="small" />
-                            </ListItemIcon>
-                            <ListItemText>Sair</ListItemText>
-                        </MenuItem>
-                    ) : null}
+                    <MenuItem onClick={() => dispatch(loggedOut())}>
+                        <ListItemIcon>
+                            <Logout fontSize="small" />
+                        </ListItemIcon>
+                        <ListItemText>Sair</ListItemText>
+                    </MenuItem>
                 </MenuList>
             </Menu>
         </>

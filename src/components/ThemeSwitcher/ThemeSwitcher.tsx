@@ -32,7 +32,6 @@ const ThemeSwitcher: React.FC = () => {
                     direction="row"
                     justifyContent="center"
                     alignItems="center"
-                    display={{ xs: "none", md: "flex" }}
                 >
                     {darkModeChecked ? (
                         <Nightlight sx={{ fill: colors.neutral[12] }} />

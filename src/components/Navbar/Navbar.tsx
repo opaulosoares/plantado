@@ -5,11 +5,11 @@ import {
     spacing,
     tokens,
 } from "../../theme";
-import { IconButton, Stack, Switch, useTheme } from "@mui/material";
+import { Button, IconButton, Stack, Switch, useTheme } from "@mui/material";
 import { LightMode, MenuRounded, Nightlight } from "@mui/icons-material";
 import { motion } from "framer-motion";
 import PlantadoLogo from "../PlantadoLogo/PlantadoLogo";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 import UserAvatarDrawer from "../UserAvatarDrawer/UserAvatarDrawer";
 import { useSelector } from "react-redux";
@@ -18,6 +18,8 @@ const Navbar: React.FC = () => {
     const colorMode = useContext(ColorModeContext);
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
+    const isLoggedIn = useSelector((state: any) => state.user.isLoggedIn);
+    const navigate = useNavigate();
 
     /* Theme management */
     const [darkModeChecked, setDarkModeChecked] = useState(
@@ -64,7 +66,24 @@ const Navbar: React.FC = () => {
                         style={{ width: 128 }}
                     />
                 </NavLink>
-                <UserAvatarDrawer />
+                {isLoggedIn ? (
+                    <div aria-label="informações usuário">
+                        <UserAvatarDrawer />
+                    </div>
+                ) : (
+                    <div
+                        aria-label="entrar"
+                        aria-description="Entrar na plataforma"
+                        tabIndex={0}
+                    >
+                        <Button
+                            variant="contained"
+                            onClick={() => navigate("/entrar")}
+                        >
+                            Entrar
+                        </Button>
+                    </div>
+                )}
             </Stack>
         </nav>
     );

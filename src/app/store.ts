@@ -10,7 +10,7 @@ type Address = {
 };
 
 // Definindo tipos
-interface User {
+export interface User {
     _id?: string;
     name?: string;
     email?: string;
@@ -40,7 +40,7 @@ interface AppState {
 const initialState: AppState = {
     isLoggedIn: false,
     cart: {},
-    user: {},
+    user: { name: "John Doe", email: "johndoe@mail.com" },
     products: {},
     users: {},
     categoryData: {},
