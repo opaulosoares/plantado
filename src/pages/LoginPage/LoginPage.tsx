@@ -151,7 +151,7 @@ const LoginPage: React.FC = () => {
                             </form>
                             <Button
                                 sx={{
-                                    width: "100%",
+                                    width: "60%",
                                     marginTop: "10px",
                                     marginRight: "45%",
                                 }}
