@@ -52,14 +52,15 @@ const CheckoutPage: React.FC = ({ children }) => {
               justifyContent: "center",
               alignItems: "center",
               height: "70vh",
-              margin: "2% auto auto",
+              margin: "2% auto",
               maxWidth: "1200px",
               
               
             }}
           >
             <Box sx={{ 
-              flexDirection: "column"
+              flexDirection: "column",
+              marginBottom: "40vh"
               }}>
 
               {/* Produto no carrinho */}
@@ -75,8 +76,8 @@ const CheckoutPage: React.FC = ({ children }) => {
                 }}
               >
                 <img
-                  src="https://i.ibb.co/2SY1wzs/Group-1.png"
-                  alt="Product Image"
+                  src="https://i.ibb.co/0m0rqgV/hose-5473324-640.jpg"
+                  alt="Um bico em formato de lanterna, a área para segurar é de cor cinza com um gatilho preto e vermelho, sua cabeça é preta e vermelha, e possui diferentes opções de saída de água."
                   style={{
                     maxWidth: "40%",
                     marginRight: "15px",
@@ -84,70 +85,17 @@ const CheckoutPage: React.FC = ({ children }) => {
                   tabindex="0"
                 />
                 <Box>
-                  <Typography tabIndex="0" variant="h6">Nome do Produto</Typography>
+                  <Typography tabIndex="0" variant="h4">Bico Especial para Mangueiras</Typography>
                   <Box mb={2} />
 
-                  <Typography tabindex="0" variant="h6">Descrição do Produto</Typography>
+                  <Typography tabindex="0" variant="h6">Esse bico possui 8 diferentes tipos de saída de água</Typography>
                   <Box mb={8} />
 
-                  <Typography tabindex="0" variant="subtitle1">$99.99</Typography>
+                  <Typography tabindex="0" variant="subtitle1">$5.99</Typography>
                 </Box>
               </Box>
               
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "row",
-                  backgroundColor: colors.grass[1], // Cor de fundo do card
-                  padding: "3%",
-                  marginBottom: "10px",
-                }}
-              >
-                <img tabindex="0"
-                  src="https://i.ibb.co/2SY1wzs/Group-1.png"
-                  alt="Product Image"
-                  style={{
-                    maxWidth: "40%",
-                    marginRight: "15px",
-                  }}
-                />
-                <Box>
-                  <Typography tabindex="0" variant="h6">Nome do Produto</Typography>
-                  <Box mb={2} />
-
-                  <Typography tabindex="0" variant="h6">Descrição do Produto</Typography>
-                  <Box mb={8} />
-
-                  <Typography tabindex="0" variant="subtitle1">$99.99</Typography>
-                </Box>
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "row",
-                  backgroundColor: colors.grass[1], // Cor de fundo do card
-                  padding: "3%",
-                  marginBottom: "10px",
-                }}
-              >
-                <img tabindex="0"
-                  src="https://i.ibb.co/2SY1wzs/Group-1.png"
-                  alt="Product Image"
-                  style={{
-                    maxWidth: "40%",
-                    marginRight: "15px",
-                  }}
-                />
-                <Box>
-                  <Typography tabindex="0" variant="h6">Nome do Produto</Typography>
-                  <Box mb={2} />
-
-                  <Typography tabindex="0" variant="h6">Descrição do Produto</Typography>
-                  <Box mb={8} />
-
-                  <Typography tabindex="0" variant="subtitle1">$99.99</Typography>
-                </Box>
-              </Box>
+              
             </Box>
 
             
