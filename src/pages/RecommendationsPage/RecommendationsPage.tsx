@@ -93,7 +93,7 @@ function RecommendationsPage() {
   return (
     <BasePage>
       <Stepper
-        activeStep={currentStep + 1}
+        activeStep={currentStep}
         alternativeLabel
         sx={{ marginBottom: 5, marginTop: 3 }}
       >
