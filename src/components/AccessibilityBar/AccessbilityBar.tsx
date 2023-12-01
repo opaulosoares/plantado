@@ -24,7 +24,7 @@ const AccessibilityBar: React.FC = () => {
         root.style.setProperty("--font-size", newSize + "px");
     };
     const handleContrast = () => {
-        document.body.classList.toggle('alto-contraste');
+        document.body.classList.toggle('contrast-mode');
     }
     return (
         <Paper
