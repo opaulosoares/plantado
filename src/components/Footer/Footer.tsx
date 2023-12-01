@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import {
   Accordion,
   AccordionDetails,
@@ -12,9 +12,13 @@ import {
   ShoppingCart,
   Share,
 } from "@mui/icons-material";
+import { ColorModeContext, spacing, tokens } from "../../theme";
 
 const Footer: React.FC = () => {
   const isSmallScreen = useMediaQuery("(max-width: 768px)");
+  const colorMode = useContext(ColorModeContext);
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
 
   if (isSmallScreen) {
     return (
@@ -23,8 +27,8 @@ const Footer: React.FC = () => {
           style={{
             flexDirection: "column",
             padding: "16px",
-            backgroundColor: "#333", // Escolha a cor de fundo desejada
-            color: "#fff", // Escolha a cor do texto desejada
+            backgroundColor: colors.grass[1], // Escolha a cor de fundo desejada
+            color: colors.neutral[12], // Escolha a cor do texto desejada
           }}
         >
           <Accordion style={{ marginBottom: "8px" }}>
@@ -93,8 +97,8 @@ const Footer: React.FC = () => {
           justifyContent: "space-between",
           alignItems: "center",
           padding: "16px",
-          backgroundColor: "#333", // Escolha a cor de fundo desejada
-          color: "#fff", // Escolha a cor do texto desejada
+           backgroundColor: colors.grass[1], // Escolha a cor de fundo desejada
+            color: colors.neutral[12], // Escolha a cor do texto desejada
           height: "120px", // Ajuste a altura conforme necessário
           gap: "16px", // Ajuste o espaçamento entre as colunas conforme necessário
         }}
