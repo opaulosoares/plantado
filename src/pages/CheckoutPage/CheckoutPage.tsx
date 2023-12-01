@@ -227,7 +227,10 @@ const CheckoutPage: React.FC = ({ children }) => {
               style={{ borderBottom: "1px solid #ccc", height: "1%", width: "100%", margin: "0 20px" }}
             ></div>
               <br></br>
-
+              <Typography variant="h5" gutterBottom>
+                Frete: $0
+              </Typography>
+              <br></br>
               <Typography variant="h5" gutterBottom>
                 Total: $5.99
               </Typography>
