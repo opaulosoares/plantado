@@ -10,7 +10,8 @@ import {
   Paper,
   Checkbox,
   Stepper,
-  Step
+  Step,
+  StepLabel
 } from "@mui/material";
 import Navbar from "../../components/Navbar/Navbar";
 import AccessibilityBar from "../../components/AccessibilityBar/AccessbilityBar";
