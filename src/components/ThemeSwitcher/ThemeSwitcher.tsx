@@ -27,43 +27,35 @@ const ThemeSwitcher: React.FC = () => {
                 alignItems: "center",
             }}
         >
-            <MenuItem>
-                <Stack
-                    direction="row"
-                    justifyContent="center"
-                    alignItems="center"
-                >
-                    {darkModeChecked ? (
-                        <Nightlight sx={{ fill: colors.neutral[12] }} />
-                    ) : (
-                        <motion.div
-                            initial={{ y: -10, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 0.2 }}
-                            style={{ display: "flex" }}
-                        >
-                            <LightMode sx={{ fill: colors.neutral[12] }} />
-                        </motion.div>
-                    )}
+            <Stack direction="row" justifyContent="center" alignItems="center">
+                {darkModeChecked ? (
+                    <Nightlight sx={{ fill: colors.neutral[12] }} />
+                ) : (
+                    <motion.div
+                        initial={{ y: -10, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.2 }}
+                        style={{ display: "flex" }}
+                    >
+                        <LightMode sx={{ fill: colors.neutral[12] }} />
+                    </motion.div>
+                )}
 
-                    <Switch
-                        checked={darkModeChecked}
-                        onChange={(
-                            event: React.ChangeEvent<HTMLInputElement>
-                        ) => {
-                            setDarkModeChecked(event.target.checked);
-                        }}
-                        onClick={colorMode.toggleColorMode}
-                        inputProps={{
-                            "aria-label": "Alternar entre os modos de cores",
-                            "aria-description":
-                                "Botão para alternar entre os modos de cores claro e escuro",
-                            "aria-details":
-                                "Ícone de uma lua e um sol, representando os modos de cores escuro e claro, respectivamente.",
-                        }}
-                    />
-                </Stack>
-            </MenuItem>
+                <Switch
+                    checked={darkModeChecked}
+                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                        setDarkModeChecked(event.target.checked);
+                    }}
+                    onClick={colorMode.toggleColorMode}
+                    inputProps={{
+                        "aria-label": "Alternar entre os modos de cores",
+                        "aria-description":
+                            "Botão para alternar entre os modos de cores claro e escuro",
+                        "aria-details":
+                            "Ícone de uma lua e um sol, representando os modos de cores escuro e claro, respectivamente.",
+                    }}
+                />
+            </Stack>
         </motion.div>
     );
 };

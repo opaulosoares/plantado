@@ -27,7 +27,6 @@ const AccessibilityBar: React.FC = () => {
     return (
         <Paper
             sx={{
-                width: "100svw",
                 bgcolor: colors.grass[7],
                 px: spacing.GLOBAL_HORIZONTAL_MARGIN,
                 py: 0.5,
@@ -41,8 +40,7 @@ const AccessibilityBar: React.FC = () => {
                 gap={2}
                 sx={{
                     fontSize: "0.8em",
-                    fontWeight: 500,
-                    fontFamily: "Inter",
+                    fontWeight: 600,
                     display: { xs: "none", md: "flex" },
                 }}
             >
@@ -50,6 +48,7 @@ const AccessibilityBar: React.FC = () => {
                     href="#inicioConteudo"
                     role="navigation"
                     aria-label="Ir para conteúdo"
+                    tabIndex={1}
                 >
                     Ir para conteúdo [1]
                 </a>
@@ -58,11 +57,17 @@ const AccessibilityBar: React.FC = () => {
                     href="#menuPrincipal"
                     role="navigation"
                     aria-label="Ir para o menu principal"
+                    tabIndex={2}
                 >
                     Ir para o menu [2]
                 </a>
 
-                <a href="#busca" role="navigation" aria-label="Ir para a busca">
+                <a
+                    href="#busca"
+                    role="navigation"
+                    aria-label="Ir para a busca"
+                    tabIndex={3}
+                >
                     Ir para a busca [3]
                 </a>
 
@@ -70,6 +75,7 @@ const AccessibilityBar: React.FC = () => {
                     href="#rodape"
                     role="navigation"
                     aria-label="Ir para o rodapé"
+                    tabIndex={4}
                 >
                     Ir para o rodapé [4]
                 </a>

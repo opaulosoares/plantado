@@ -1,17 +1,21 @@
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
+import { ColorModeContext, spacing, tokens } from "../../theme";
 import {
-    ColorModeContext,
-    checkLocalStorageTheme,
-    spacing,
-    tokens,
-} from "../../theme";
-import { Button, IconButton, Stack, Switch, useTheme } from "@mui/material";
-import { LightMode, MenuRounded, Nightlight } from "@mui/icons-material";
-import { motion } from "framer-motion";
+    Button,
+    Drawer,
+    IconButton,
+    InputBase,
+    Paper,
+    Stack,
+    Typography,
+    useTheme,
+} from "@mui/material";
+import { MenuRounded, Search } from "@mui/icons-material";
 import PlantadoLogo from "../PlantadoLogo/PlantadoLogo";
 import { NavLink, useNavigate } from "react-router-dom";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 import UserAvatarDrawer from "../UserAvatarDrawer/UserAvatarDrawer";
+import Cart from "../Cart/Cart";
 import { useSelector } from "react-redux";
 
 const Navbar: React.FC = () => {
@@ -20,11 +24,12 @@ const Navbar: React.FC = () => {
     const colors = tokens(theme.palette.mode);
     const isLoggedIn = useSelector((state: any) => state.user.isLoggedIn);
     const navigate = useNavigate();
+    const [inputValue, setInputValue] = useState("");
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-    /* Theme management */
-    const [darkModeChecked, setDarkModeChecked] = useState(
-        checkLocalStorageTheme()
-    );
+    const handleDrawerToggle = () => {
+        setIsDrawerOpen(!isDrawerOpen);
+    };
 
     return (
         <nav
@@ -32,6 +37,7 @@ const Navbar: React.FC = () => {
                 position: "sticky",
                 top: 0,
                 zIndex: 999,
+                width: "100%",
                 backgroundColor: colors.grass[1],
                 color: colors.neutral[12],
                 borderBottom: `1px solid ${colors.neutralTransparent[8]}`,
@@ -43,17 +49,21 @@ const Navbar: React.FC = () => {
                     px: spacing.GLOBAL_HORIZONTAL_MARGIN,
                     py: 2,
                     justifyContent: "space-between",
+                    gap: 4,
                 }}
                 direction="row"
             >
-                <IconButton sx={{ display: { xs: "flex", md: "none" } }}>
+                <IconButton
+                    sx={{ display: { xs: "flex", md: "none" } }}
+                    onClick={handleDrawerToggle}
+                >
                     <MenuRounded />
                 </IconButton>
 
                 <NavLink
                     to="/"
                     aria-label="Voltar para a página inicial"
-                    aria-description="Botão para retornar para a página inicia ativado por um clique único"
+                    aria-description="Botão para retornar para a página inicial ativado por um clique único"
                     aria-details="Logo da empresa com ilustração de uma folha de planta dentro de um círculo e texto escrito Plantado à sua direita."
                     style={{
                         display: "flex",
@@ -66,25 +76,100 @@ const Navbar: React.FC = () => {
                         style={{ width: 128 }}
                     />
                 </NavLink>
-                {isLoggedIn ? (
-                    <div aria-label="informações usuário">
-                        <UserAvatarDrawer />
-                    </div>
-                ) : (
-                    <div
-                        aria-label="entrar"
-                        aria-description="Entrar na plataforma"
-                        tabIndex={0}
+                <Stack
+                    width={"100%"}
+                    sx={{ display: { xs: "none", md: "flex" } }}
+                >
+                    <Paper
+                        sx={{
+                            p: "0.25rem 1rem",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            width: "100%",
+                            gap: 1,
+                            border: `1px solid ${colors.neutral[7]}`,
+                        }}
+                        elevation={0}
                     >
+                        <InputBase
+                            size="medium"
+                            placeholder={`Digite o título do produto: "Vaso de planta" `}
+                            value={inputValue}
+                            fullWidth={true}
+                            onChange={(event) =>
+                                setInputValue(event.target.value)
+                            }
+                            onKeyDown={(event) => {
+                                if (event.key === "Enter") {
+                                    event.preventDefault();
+                                }
+                            }}
+                            tabIndex={0}
+                        />
+                        <IconButton
+                            color="primary"
+                            sx={{ background: colors.grass[5] }}
+                        >
+                            <Search />
+                        </IconButton>
+                    </Paper>
+                </Stack>
+                <Stack
+                    justifyContent={"center"}
+                    alignItems={"center"}
+                    direction={"row"}
+                    gap={2}
+                >
+                    {isLoggedIn ? (
+                        <div aria-label="informações usuário">
+                            <UserAvatarDrawer />
+                        </div>
+                    ) : (
                         <Button
                             variant="contained"
                             onClick={() => navigate("/entrar")}
+                            tabIndex={0}
+                            aria-label="entrar"
+                            aria-description="Entrar na plataforma"
+                            sx={{ display: { xs: "none", md: "flex" } }}
                         >
                             Entrar
                         </Button>
-                    </div>
-                )}
+                    )}
+                    <Cart />
+                    {isLoggedIn ? null : (
+                        <Stack sx={{ display: { xs: "none", md: "flex" } }}>
+                            <ThemeSwitcher />
+                        </Stack>
+                    )}
+                </Stack>
             </Stack>
+
+            {/* Drawer for smaller screens */}
+            <Drawer
+                anchor="top"
+                open={isDrawerOpen}
+                onClose={handleDrawerToggle}
+            >
+                {/* Content inside the drawer */}
+                <Stack
+                    sx={{
+                        p: spacing.GLOBAL_HORIZONTAL_MARGIN,
+                        justifyContent: "center",
+                        alignItems: "center",
+                    }}
+                >
+                    {/* Add links or other elements as needed */}
+                    <Typography variant="h6" onClick={() => navigate("/")}>
+                        Home
+                    </Typography>
+                    <Typography variant="h6" onClick={() => navigate("/about")}>
+                        About
+                    </Typography>
+                    {/* ... other navigation links ... */}
+                </Stack>
+            </Drawer>
         </nav>
     );
 };
