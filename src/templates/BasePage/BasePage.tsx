@@ -29,7 +29,9 @@ const BasePage: React.FC<BasePageProps> = ({ children }) => {
                     {children}
                 </Stack>
             </main>
-            <Footer />
+            <footer>
+                <Footer />
+            </footer>
         </>
     );
 };
