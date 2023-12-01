@@ -23,7 +23,9 @@ const AccessibilityBar: React.FC = () => {
         // set new size
         root.style.setProperty("--font-size", newSize + "px");
     };
-
+    const handleContrast = () => {
+        document.body.classList.toggle('alto-contraste');
+    }
     return (
         <Paper
             sx={{
@@ -88,7 +90,7 @@ const AccessibilityBar: React.FC = () => {
                     <TextIncrease />
                 </IconButton>
 
-                <IconButton size="small">
+                <IconButton onClick={handleContrast} size="small">
                     <Stack flexDirection={"row"} alignItems={"center"} gap={1}>
                         <Contrast />
                         <Typography variant="body2">Contraste</Typography>
