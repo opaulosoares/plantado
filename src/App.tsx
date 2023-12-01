@@ -8,7 +8,7 @@ import RecommendationsPage from "./pages/RecommendationsPage/RecommendationsPage
 import OrderConfirmationPage from "./pages/SuccessPage/OrderConfirmationPage";
 import CartPage from "./pages/CartPage/CartPage";
 import ProductCategoriesPage from "./pages/ProductsCategoriesPage/ProductsPage";
-
+import ProductPage from "./pages/ProductPage/ProductPage"
 function App() {
     const [theme, colorMode] = useMode();
 
@@ -34,6 +34,7 @@ function App() {
                             element={<OrderConfirmationPage />}
                         />
                         <Route path="/cart" element={<CartPage />} />
+                        <Route path="/product" element={<ProductPage />} />
                     </Routes>
                 </Router>
             </ThemeProvider>
