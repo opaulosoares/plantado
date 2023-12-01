@@ -105,7 +105,7 @@ const Footer: React.FC = () => {
           padding: "16px",
            backgroundColor: colors.grass[1], // Escolha a cor de fundo desejada
             color: colors.neutral[12], // Escolha a cor do texto desejada
-          height: "170px", // Ajuste a altura conforme necessário
+          height: "120px", // Ajuste a altura conforme necessário
           gap: "16px", // Ajuste o espaçamento entre as colunas conforme necessário
         }}
       >
