@@ -71,14 +71,12 @@ const navigate = useNavigate();
             }}>
             <Stepper activeStep={activeStep}>
                 <Step>
-                <StepLabel>Homepage</StepLabel>
+                <StepLabel>Produto Escolhido</StepLabel>
                 </Step>
                 <Step>
-                <StepLabel>Acessórios</StepLabel>
+                <StepLabel>Carrinho</StepLabel>
                 </Step>
-                <Step>
-                <StepLabel>Rega</StepLabel>
-                </Step>
+                <StepLabel>Pagamento</StepLabel>
             </Stepper>
             </Box>
             <Box sx={{ 
