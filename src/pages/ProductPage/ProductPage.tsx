@@ -185,7 +185,8 @@ const ProductPage: React.FC = () => {
                   image={product.imageUrl}
                 />
                 <CardContent sx={{
-                    display: "flex"
+                    display: "flex",
+                    flexDirection: "column"
                 }}>
                   <Typography variant="h6">{product.name}</Typography>
                   <Typography variant="subtitle1">{product.price}</Typography>
