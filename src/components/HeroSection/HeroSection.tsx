@@ -20,6 +20,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         <Stack
             sx={{
                 py: { xs: 12, md: 16 },
+                px: { xs: 4, md: 8 },
                 justifyContent: "center",
                 alignItems: "center",
                 gap: 4,

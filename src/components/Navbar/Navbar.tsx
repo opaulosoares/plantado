@@ -34,9 +34,6 @@ const Navbar: React.FC = () => {
     return (
         <nav
             style={{
-                position: "sticky",
-                top: 0,
-                zIndex: 999,
                 width: "100%",
                 backgroundColor: colors.grass[1],
                 color: colors.neutral[12],
@@ -63,7 +60,6 @@ const Navbar: React.FC = () => {
                 <NavLink
                     to="/"
                     aria-label="Voltar para a página inicial"
-                    aria-description="Botão para retornar para a página inicial ativado por um clique único"
                     aria-details="Logo da empresa com ilustração de uma folha de planta dentro de um círculo e texto escrito Plantado à sua direita."
                     style={{
                         display: "flex",
@@ -143,7 +139,7 @@ const Navbar: React.FC = () => {
                             onClick={() => navigate("/entrar")}
                             tabIndex={0}
                             aria-label="entrar"
-                            aria-description="Entrar na plataforma"
+                            aria-details="Botão para entrar na conta do usuário."
                             sx={{ display: { xs: "none", md: "flex" } }}
                         >
                             Entrar
