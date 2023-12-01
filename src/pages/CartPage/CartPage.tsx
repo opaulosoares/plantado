@@ -20,7 +20,8 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 const CheckoutPage: React.FC = ({ children }) => {
 const navigate = useNavigate();
-  
+  const [activeStep, setActiveStep] = useState(1); // Assuming Rega is the third step
+
   const colorMode = useContext(ColorModeContext);
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -76,7 +77,9 @@ const navigate = useNavigate();
                 <Step>
                 <StepLabel>Carrinho</StepLabel>
                 </Step>
+                <Step>
                 <StepLabel>Pagamento</StepLabel>
+                </Step>
             </Stepper>
             </Box>
             <Box sx={{ 
