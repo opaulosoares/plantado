@@ -13,6 +13,9 @@ import {
   Info,
   ShoppingCart,
   Share,
+  FacebookIcon,
+  TwitterIcon,
+  InstagramIcon
 } from "@mui/icons-material";
 import { ColorModeContext, spacing, tokens } from "../../theme";
 
@@ -125,8 +128,9 @@ const Footer: React.FC = () => {
 
         <div>
           <Typography variant="h6">Redes Sociais</Typography>
-          <Typography>Facebook</Typography>
-          <Typography>Instagram</Typography>
+          <FacebookIcon />
+          <TwitterIcon />
+          <InstagramIcon />
         </div>
       </div>
     </footer>
