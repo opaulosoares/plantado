@@ -194,7 +194,6 @@ const CheckoutPage: React.FC = ({ children }) => {
                 
 
                 {/* Botão de Envio */}
-                <Button type="submit">Finalizar Pedido</Button>
               </form>
             </div>
 
@@ -215,11 +214,24 @@ const CheckoutPage: React.FC = ({ children }) => {
                 marginBottom: "100vh", // Adicionando margem inferior
               }}
             >
-              <Typography variant="h4" gutterBottom>
+              <Typography variant="h3" gutterBottom>
                 Resumo do Pedido
               </Typography>
+              <br></br>
+              <Typography variant="h5" gutterBottom>
+                Bico de Mangueira - $5.99
+              </Typography>
+              <div
+              style={{ borderBottom: "1px solid #ccc", height: "1%", width: "100%", margin: "0 20px" }}
+            ></div>
+              <br></br>
 
+              <Typography variant="h5" gutterBottom>
+                Total: $5.99
+              </Typography>
+              <br></br>
               {/* Adicione informações do resumo do pedido aqui (foto do produto, nome, preço total) */}
+              <Button sx={{ width: "100%"}} variant="contained" type="submit">Finalizar Pedido</Button>
             </Paper>
           </Box>
         </main>
