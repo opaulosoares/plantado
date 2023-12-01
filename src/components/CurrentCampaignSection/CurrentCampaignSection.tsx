@@ -2,8 +2,9 @@ import React from "react";
 import db from "../../data/db.json";
 import ProductCard from "../ProductCard/ProductCard";
 import { Grid, Stack, Typography } from "@mui/material";
-
+import { NavLink, useNavigate } from "react-router-dom";
 const CurrentCampaignSection: React.FC = () => {
+    const navigate = useNavigate();    
     const produtosComDesconto = [
         ...db.produtos.plantas.filter((planta) => planta.hasDiscount),
         ...db.produtos.vasos.filter((vaso) => vaso.hasDiscount),
@@ -42,7 +43,7 @@ const CurrentCampaignSection: React.FC = () => {
                             lg={3}
                             xl={2.4}
                         >
-                            <ProductCard produto={produto} />
+                            <ProductCard onClick={() => navigate("/product")} produto={produto} />
                         </Grid>
                     ))}
                 </Grid>
