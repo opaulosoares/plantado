@@ -9,7 +9,8 @@ import {
   Grid,
   Paper,
   Checkbox,
-  Stepper
+  Stepper,
+  Step
 } from "@mui/material";
 import Navbar from "../../components/Navbar/Navbar";
 import AccessibilityBar from "../../components/AccessibilityBar/AccessbilityBar";
@@ -61,6 +62,24 @@ const CheckoutPage: React.FC = ({ children }) => {
               flexDirection: "column",
             }}
           >
+          <Box sx={{ 
+                marginBottom: "20px",
+                maxWidth: "30%",
+                marginLeft: "10%"
+        
+            }}>
+            <Stepper activeStep={activeStep}>
+                <Step>
+                <StepLabel>Produto Escolhido</StepLabel>
+                </Step>
+                <Step>
+                <StepLabel>Carrinho</StepLabel>
+                </Step>
+                <Step>
+                <StepLabel>Pagamento</StepLabel>
+                </Step>
+            </Stepper>
+            </Box>
           <img
               src="https://i.ibb.co/2SY1wzs/Group-1.png"
               alt="Credit Card"
