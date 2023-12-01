@@ -17,8 +17,11 @@ import {
 import Navbar from "../../components/Navbar/Navbar";
 import AccessibilityBar from "../../components/AccessibilityBar/AccessbilityBar";
 import { ColorModeContext, tokens } from "../../theme";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const ProductPage: React.FC = () => {
+  const navigate = useNavigate();
+
   const colorMode = useContext(ColorModeContext);
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -156,7 +159,7 @@ const ProductPage: React.FC = () => {
             </Box>
             <br></br>
 
-                <Button variant="contained" onClick={handleAddToCart} sx={{ marginTop: "10px" }}>
+                <Button variant="contained" onClick={() => navigate("/cart")} sx={{ marginTop: "10px" }}>
                 Adicionar ao Carrinho
                 </Button>
             </Paper>
