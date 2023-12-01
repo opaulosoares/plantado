@@ -19,7 +19,7 @@ import Cart from "../Cart/Cart";
 import { useSelector } from "react-redux";
 
 const Navbar: React.FC = () => {
-    const colorMode = useContext(ColorModeContext);
+    // const colorMode = useContext(ColorModeContext);
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
     const isLoggedIn = useSelector((state: any) => state.user.isLoggedIn);
@@ -77,8 +77,20 @@ const Navbar: React.FC = () => {
                     />
                 </NavLink>
                 <Stack
-                    width={"100%"}
+                    direction={"row"}
+                    alignItems={"center"}
+                    px={{ md: 4, lg: 8, xl: 16 }}
+                    gap={2}
                     sx={{ display: { xs: "none", md: "flex" } }}
+                >
+                    <NavLink to={"/categoria/plantas"}>Plantas</NavLink>
+                    <NavLink to={"/categoria/rega"}>Rega</NavLink>
+                    <NavLink to={"/categoria/vasos"}>Vasos</NavLink>
+                    <NavLink to={"/categoria/acessorios"}>Acessórios</NavLink>
+                </Stack>
+                <Stack
+                    width={"100%"}
+                    sx={{ display: { xs: "none", lg: "flex" } }}
                 >
                     <Paper
                         sx={{

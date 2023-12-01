@@ -38,7 +38,7 @@ interface AppState {
 
 // Estado inicial
 const initialState: AppState = {
-    isLoggedIn: false,
+    isLoggedIn: true,
     cart: {},
     user: { name: "John Doe", email: "johndoe@mail.com" },
     products: {},

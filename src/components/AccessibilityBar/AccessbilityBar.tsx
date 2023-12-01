@@ -27,7 +27,7 @@ const AccessibilityBar: React.FC = () => {
     return (
         <Paper
             sx={{
-                bgcolor: colors.grass[7],
+                bgcolor: colors.grass[3],
                 px: spacing.GLOBAL_HORIZONTAL_MARGIN,
                 py: 0.5,
                 display: "flex",

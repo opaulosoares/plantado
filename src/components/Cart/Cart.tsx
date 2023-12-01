@@ -1,8 +1,4 @@
-import {
-    ProductionQuantityLimits,
-    ShoppingBag,
-    ShoppingCart,
-} from "@mui/icons-material";
+import { ProductionQuantityLimits, ShoppingCart } from "@mui/icons-material";
 import { Drawer, IconButton, Stack, Typography, useTheme } from "@mui/material";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";

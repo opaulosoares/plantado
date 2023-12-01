@@ -1,7 +1,7 @@
 import { LightMode, Nightlight } from "@mui/icons-material";
 import { MenuItem, Stack, Switch, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ColorModeContext, checkLocalStorageTheme, tokens } from "../../theme";
 
 // import { Container } from './styles';
@@ -15,6 +15,7 @@ const ThemeSwitcher: React.FC = () => {
     const [darkModeChecked, setDarkModeChecked] = useState(
         checkLocalStorageTheme()
     );
+
     return (
         <motion.div
             initial={{ y: 10, opacity: 0 }}
@@ -28,7 +29,7 @@ const ThemeSwitcher: React.FC = () => {
             }}
         >
             <Stack direction="row" justifyContent="center" alignItems="center">
-                {darkModeChecked ? (
+                {darkModeChecked || theme.palette.mode === "dark" ? (
                     <Nightlight sx={{ fill: colors.neutral[12] }} />
                 ) : (
                     <motion.div
@@ -42,10 +43,11 @@ const ThemeSwitcher: React.FC = () => {
                 )}
 
                 <Switch
-                    checked={darkModeChecked}
+                    checked={darkModeChecked || theme.palette.mode === "dark"}
                     onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                         setDarkModeChecked(event.target.checked);
                     }}
+                    tabIndex={0}
                     onClick={colorMode.toggleColorMode}
                     inputProps={{
                         "aria-label": "Alternar entre os modos de cores",
