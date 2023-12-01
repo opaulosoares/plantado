@@ -11,10 +11,6 @@ const Homepage: React.FC = () => {
                 <HeroSection
                     primaryText="Natal na Plantado"
                     secondaryText="Ofertas exclusivas de plantas e acessórios para você decorar sua casa!"
-                    callToAction="
-                        Confira nossos produtos
-                    "
-                    actionRoute="/produtos"
                 />
                 <Divider sx={{ width: "100%" }} />
                 <CurrentCampaignSection />

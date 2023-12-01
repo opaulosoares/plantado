@@ -15,7 +15,7 @@ import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 import { Logout, Person } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, loggedIn, loggedOut } from "../../app/store";
-import { ColorModeContext } from "../../theme";
+import { ColorModeContext, checkLocalStorageTheme } from "../../theme";
 
 const UserAvatarDrawer: React.FC = () => {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -26,13 +26,6 @@ const UserAvatarDrawer: React.FC = () => {
     const isLoggedIn = useSelector((state: any) => state.user.isLoggedIn);
     const userData = useSelector((state: RootState) => state.user);
 
-    const themeSwitcherRef = useRef(null);
-
-    const handleMenuItemFocus = () => {
-        if (themeSwitcherRef.current) {
-            themeSwitcherRef.current.focus();
-        }
-    };
     const handleClicked = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
     };
@@ -40,6 +33,10 @@ const UserAvatarDrawer: React.FC = () => {
     const handleClose = () => {
         setAnchorEl(null);
     };
+
+    const [darkModeChecked, setDarkModeChecked] = useState(
+        checkLocalStorageTheme()
+    );
 
     return (
         <>
@@ -67,10 +64,8 @@ const UserAvatarDrawer: React.FC = () => {
             >
                 <Avatar />
                 <Stack direction={"column"}>
-                    <Typography variant="h5">{userData.user.name}</Typography>
-                    <Typography variant="body1">
-                        {userData.user.email}
-                    </Typography>
+                    <Typography variant="h5">{userData.name}</Typography>
+                    <Typography variant="body1">{userData.email}</Typography>
                 </Stack>
             </Stack>
 
@@ -94,7 +89,7 @@ const UserAvatarDrawer: React.FC = () => {
                 </MenuItem>
 
                 <MenuItem id="mi2">
-                    <ThemeSwitcher ref={themeSwitcherRef} />
+                    <ThemeSwitcher />
                 </MenuItem>
 
                 <MenuItem

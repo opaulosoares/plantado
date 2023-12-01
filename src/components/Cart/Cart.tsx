@@ -7,9 +7,7 @@ import { tokens } from "../../theme";
 
 const Cart: React.FC = () => {
     const [open, setOpen] = useState(false);
-    const cartItems = useSelector((state: RootState) => state.user.cart);
-    console.log(cartItems);
-
+    const cartItems = useSelector((state: RootState) => state.cart);
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
 
@@ -53,7 +51,7 @@ const Cart: React.FC = () => {
                                 </Typography>
                             </Stack>
                         ) : (
-                            "Algo"
+                            <Stack>{cartItems.toString()}</Stack>
                         )}
                     </Stack>
                 </Stack>

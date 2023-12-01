@@ -1,20 +1,21 @@
-import { Button, Stack, Typography } from "@mui/material";
+import { Button, Stack, Typography, useTheme } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
+import { tokens } from "../../theme";
 
 interface HeroSectionProps {
     primaryText: string;
     secondaryText: string;
-    callToAction: string;
-    actionRoute: string;
+    callToAction?: string;
+    actionRoute?: string;
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({
     primaryText,
     secondaryText,
-    callToAction,
-    actionRoute,
 }) => {
+    const theme = useTheme();
+    const colors = tokens(theme.palette.mode);
     return (
         <Stack
             sx={{
@@ -23,6 +24,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 alignItems: "center",
                 gap: 4,
                 textAlign: "center",
+                bgcolor: colors.grass[5],
+                width: "100%",
+                borderRadius: 2,
+                my: 4,
             }}
         >
             <Stack
@@ -39,11 +44,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                     {secondaryText}
                 </Typography>
             </Stack>
-            <Link to={actionRoute}>
-                <Button variant="contained" color="primary">
-                    {callToAction}
-                </Button>
-            </Link>
         </Stack>
     );
 };
