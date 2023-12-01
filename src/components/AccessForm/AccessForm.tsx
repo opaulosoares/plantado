@@ -9,19 +9,21 @@ import {
     Typography,
 } from "@mui/material";
 import React, { useState } from "react";
-import PlantadoLogo from "../PlantadoLogo/PlantadoLogo";
 
 const LoginForm: React.FC<{ onToggle: () => void }> = ({ onToggle }) => {
     const [showPassword, setShowPassword] = useState(false);
     const handleClickShowPassword = () => setShowPassword(!showPassword);
-    const handleMouseDownPassword = () => setShowPassword(!showPassword);
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     return (
-        <Stack width={"50%"}>
-            <Stack direction={"row"} gap={2} justifyContent={"space-between"}>
+        <Stack>
+            <Stack
+                direction={{ xs: "column-reverse", md: "row" }}
+                justifyContent={"space-between"}
+                gap={2}
+            >
                 <Stack justifyContent={"center"}>
                     <Typography variant="h2" tabIndex={0}>
                         Acesse sua conta
@@ -93,8 +95,12 @@ const LoginForm: React.FC<{ onToggle: () => void }> = ({ onToggle }) => {
 
 const SignUpForm: React.FC<{ onToggle: () => void }> = ({ onToggle }) => {
     return (
-        <Stack width={"50%"}>
-            <Stack direction={"row"} justifyContent={"space-between"} gap={2}>
+        <Stack>
+            <Stack
+                direction={{ xs: "column-reverse", md: "row" }}
+                justifyContent={"space-between"}
+                gap={2}
+            >
                 <Stack>
                     <Typography variant="h2" component="h1" tabIndex={0}>
                         Crie sua conta
@@ -159,7 +165,7 @@ const AccessForm: React.FC = () => {
                 justifyContent={"center"}
                 alignItems={"center"}
                 height={"100%"}
-                py={16}
+                py={{ xs: 4, md: 8 }}
             >
                 {showLoginForm ? (
                     <LoginForm onToggle={handleToggleForm} />

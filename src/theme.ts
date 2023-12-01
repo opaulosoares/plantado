@@ -8,7 +8,7 @@ export const spacing = {
     SECTION_PADDING_Y: "3rem",
     SECTION_TITLE_TO_CONTENT: "1rem",
     TEXT_DEFAULT_SPACING: "1rem",
-    GLOBAL_HORIZONTAL_MARGIN: { xs: 4, md: 8 },
+    GLOBAL_HORIZONTAL_MARGIN: { xs: 4, md: 16 },
 };
 
 export const tokens = (mode: PaletteMode) => ({

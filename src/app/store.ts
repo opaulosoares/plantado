@@ -38,31 +38,8 @@ interface AppState {
     bestDeals: { [key: string]: any };
 }
 
-// Função para carregar o estado do localStorage
-const loadState = (): AppState | undefined => {
-    try {
-        const serializedState = localStorage.getItem("appState");
-        if (serializedState === null) {
-            return undefined;
-        }
-        return JSON.parse(serializedState);
-    } catch (err) {
-        return undefined;
-    }
-};
-
-// Função para salvar o estado no localStorage
-const saveState = (state: AppState) => {
-    try {
-        const serializedState = JSON.stringify(state);
-        localStorage.setItem("appState", serializedState);
-    } catch (err) {
-        // Tratar erros ao salvar no localStorage, se necessário
-    }
-};
-
 // Estado inicial
-const initialState: AppState = loadState() || {
+const initialState: AppState = {
     isLoggedIn: true,
     user: {
         name: "John Doe",
@@ -82,29 +59,23 @@ const appSlice = createSlice({
     reducers: {
         setUser: (state, action: PayloadAction<User>) => {
             state.user = { ...state.user, ...action.payload };
-            saveState(state);
         },
         loggedIn: (state) => {
             state.isLoggedIn = true;
-            saveState(state);
         },
         loggedOut: (state) => {
             state.isLoggedIn = false;
-            saveState(state);
         },
         addToCart: (state, action: PayloadAction<Product>) => {
             state.cart.push(action.payload);
-            saveState(state);
         },
         removeFromCart: (state, action: PayloadAction<number>) => {
             state.cart = state.cart.filter(
                 (item) => item.id !== action.payload
             );
-            saveState(state);
         },
         clearCart: (state) => {
             state.cart = [];
-            saveState(state);
         },
     },
 });

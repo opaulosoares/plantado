@@ -17,6 +17,7 @@ import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 import UserAvatarDrawer from "../UserAvatarDrawer/UserAvatarDrawer";
 import Cart from "../Cart/Cart";
 import { useSelector } from "react-redux";
+import { RootState } from "../../app/store";
 
 const Navbar: React.FC = () => {
     // const colorMode = useContext(ColorModeContext);
@@ -79,10 +80,58 @@ const Navbar: React.FC = () => {
                     gap={2}
                     sx={{ display: { xs: "none", md: "flex" } }}
                 >
-                    <NavLink to={"/categoria/plantas"}>Plantas</NavLink>
-                    <NavLink to={"/categoria/rega"}>Rega</NavLink>
-                    <NavLink to={"/categoria/vasos"}>Vasos</NavLink>
-                    <NavLink to={"/categoria/acessorios"}>Acessórios</NavLink>
+                    <NavLink
+                        to={"/categoria/plantas"}
+                        aria-label="Ir para a página de plantas"
+                        style={(isActive) => {
+                            return {
+                                borderBottom: isActive.isActive
+                                    ? "1px solid white"
+                                    : "",
+                            };
+                        }}
+                    >
+                        <Typography fontWeight={600}>Plantas</Typography>
+                    </NavLink>
+                    <NavLink
+                        to={"/categoria/rega"}
+                        aria-label="Ir para a página de rega"
+                        style={(isActive) => {
+                            return {
+                                borderBottom: isActive.isActive
+                                    ? "1px solid white"
+                                    : "",
+                            };
+                        }}
+                    >
+                        <Typography fontWeight={600}>Rega</Typography>
+                    </NavLink>
+                    <NavLink
+                        to={"/categoria/vasos"}
+                        aria-label="Ir para a página de vasos"
+                        style={(isActive) => {
+                            return {
+                                borderBottom: isActive.isActive
+                                    ? "1px solid white"
+                                    : "",
+                            };
+                        }}
+                    >
+                        <Typography fontWeight={600}>Vasos</Typography>
+                    </NavLink>
+                    <NavLink
+                        to={"/categoria/acessorios"}
+                        aria-label="Ir para a página de acessórios"
+                        style={(isActive) => {
+                            return {
+                                borderBottom: isActive.isActive
+                                    ? "1px solid white"
+                                    : "",
+                            };
+                        }}
+                    >
+                        <Typography fontWeight={600}>Acessórios</Typography>
+                    </NavLink>
                 </Stack>
                 <Stack
                     width={"100%"}
@@ -161,20 +210,87 @@ const Navbar: React.FC = () => {
             >
                 {/* Content inside the drawer */}
                 <Stack
+                    direction={"row"}
                     sx={{
                         p: spacing.GLOBAL_HORIZONTAL_MARGIN,
-                        justifyContent: "center",
-                        alignItems: "center",
+                        justifyContent: "space-between",
+                        alignItems: "flex-start",
                     }}
                 >
-                    {/* Add links or other elements as needed */}
-                    <Typography variant="h6" onClick={() => navigate("/")}>
-                        Home
-                    </Typography>
-                    <Typography variant="h6" onClick={() => navigate("/about")}>
-                        About
-                    </Typography>
-                    {/* ... other navigation links ... */}
+                    {isLoggedIn ? (
+                        <div aria-label="informações usuário">
+                            <UserAvatarDrawer />
+                        </div>
+                    ) : (
+                        <Button
+                            variant="contained"
+                            onClick={() => navigate("/entrar")}
+                            tabIndex={0}
+                            aria-label="entrar"
+                            aria-details="Botão para entrar na conta do usuário."
+                        >
+                            Entrar
+                        </Button>
+                    )}
+                    <Stack
+                        sx={{
+                            justifyContent: "center",
+                            alignItems: "flex-end",
+                        }}
+                    >
+                        <NavLink
+                            to={"/categoria/plantas"}
+                            aria-label="Ir para a página de plantas"
+                            style={(isActive) => {
+                                return {
+                                    borderBottom: isActive.isActive
+                                        ? "1px solid white"
+                                        : "",
+                                };
+                            }}
+                        >
+                            Plantas
+                        </NavLink>
+                        <NavLink
+                            to={"/categoria/rega"}
+                            aria-label="Ir para a página de rega"
+                            style={(isActive) => {
+                                return {
+                                    borderBottom: isActive.isActive
+                                        ? "1px solid white"
+                                        : "",
+                                };
+                            }}
+                        >
+                            Rega
+                        </NavLink>
+                        <NavLink
+                            to={"/categoria/vasos"}
+                            aria-label="Ir para a página de vasos"
+                            style={(isActive) => {
+                                return {
+                                    borderBottom: isActive.isActive
+                                        ? "1px solid white"
+                                        : "",
+                                };
+                            }}
+                        >
+                            Vasos
+                        </NavLink>
+                        <NavLink
+                            to={"/categoria/acessorios"}
+                            aria-label="Ir para a página de acessórios"
+                            style={(isActive) => {
+                                return {
+                                    borderBottom: isActive.isActive
+                                        ? "1px solid white"
+                                        : "",
+                                };
+                            }}
+                        >
+                            Acessórios
+                        </NavLink>
+                    </Stack>
                 </Stack>
             </Drawer>
         </nav>
