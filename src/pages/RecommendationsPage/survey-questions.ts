@@ -14,8 +14,8 @@ export const SurveyQuestions: Array<SuverySection> = [
         answers: [
           { text: "Floral", value: "floral" },
           { text: "Cítrico", value: "citrico" },
-          { text: "Amadeirado", value: "amadeirado" },
           { text: "Fresco", value: "fresco" },
+          { text: "Não tenho certeza", value: "nao_certeza_aroma" },
         ],
       },
       {
@@ -70,17 +70,17 @@ export const SurveyQuestions: Array<SuverySection> = [
         ],
       },
       {
-        question: "Quais são as suas preferências de temperatura?",
+        question: "Como você julga a temperatura do local onde colocará a planta?",
         answers: [
           { text: "Quente", value: "quente" },
           { text: "Moderada", value: "moderada" },
           { text: "Fria", value: "fria" },
-          { text: "Não tenho preferência", value: "nao_tenho_preferencia" },
+          { text: "Não tenho certeza", value: "nao_certeza_local" },
         ],
       },
 
       {
-        question: "Quanto espaço disponível você tem para plantas?",
+        question: "Quanto de espaço disponível você tem para plantas?",
         answers: [
           { text: "Pouco espaço", value: "pouco_espaco" },
           { text: "Espaço moderado", value: "espaco_moderado" },
