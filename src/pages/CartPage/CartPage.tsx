@@ -127,7 +127,7 @@ const navigate = useNavigate();
                 </Typography>
                 <hr></hr>
                 <Typography tabindex="0" variant="h5" gutterBottom>
-                  Preço total: $20.00
+                  Preço total: $5.99
                 </Typography>
                 <Button
                     variant="contained"
