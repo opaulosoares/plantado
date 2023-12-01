@@ -6,7 +6,11 @@ import { ColorModeContext, checkLocalStorageTheme, tokens } from "../../theme";
 
 // import { Container } from './styles';
 
-const ThemeSwitcher: React.FC = () => {
+interface ThemeSwitcherProps {
+    ref: any;
+}
+
+const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({ ref }) => {
     const colorMode = useContext(ColorModeContext);
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
@@ -48,6 +52,7 @@ const ThemeSwitcher: React.FC = () => {
                         setDarkModeChecked(event.target.checked);
                     }}
                     tabIndex={0}
+                    ref={ref}
                     onClick={colorMode.toggleColorMode}
                     inputProps={{
                         "aria-label": "Alternar entre os modos de cores",

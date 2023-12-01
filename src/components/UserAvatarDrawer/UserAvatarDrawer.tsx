@@ -10,7 +10,7 @@ import {
     Stack,
     Typography,
 } from "@mui/material";
-import React, { useContext, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 import { Logout, Person } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
@@ -26,6 +26,13 @@ const UserAvatarDrawer: React.FC = () => {
     const isLoggedIn = useSelector((state: any) => state.user.isLoggedIn);
     const userData = useSelector((state: RootState) => state.user);
 
+    const themeSwitcherRef = useRef(null);
+
+    const handleMenuItemFocus = () => {
+        if (themeSwitcherRef.current) {
+            themeSwitcherRef.current.focus();
+        }
+    };
     const handleClicked = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
     };
@@ -49,7 +56,11 @@ const UserAvatarDrawer: React.FC = () => {
                 role="button"
                 id="menubutton1"
                 onKeyDown={(e: any) => {
-                    if (e.key === " " || e.key === "Enter") {
+                    if (
+                        e.key === " " ||
+                        e.key === "Enter" ||
+                        e.key === "Space"
+                    ) {
                         handleClicked(e);
                     }
                 }}
@@ -82,8 +93,8 @@ const UserAvatarDrawer: React.FC = () => {
                     <ListItemText>Meu perfil</ListItemText>
                 </MenuItem>
 
-                <MenuItem id="mi2" onClick={colorMode.toggleColorMode}>
-                    <ThemeSwitcher />
+                <MenuItem id="mi2">
+                    <ThemeSwitcher ref={themeSwitcherRef} />
                 </MenuItem>
 
                 <MenuItem

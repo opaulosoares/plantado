@@ -2,6 +2,7 @@ import React from "react";
 import BasePage from "../../templates/BasePage/BasePage";
 import { Divider, Stack } from "@mui/material";
 import HeroSection from "../../components/HeroSection/HeroSection";
+import CurrentCampaignSection from "../../components/CurrentCampaignSection/CurrentCampaignSection";
 
 const Homepage: React.FC = () => {
     return (
@@ -16,6 +17,7 @@ const Homepage: React.FC = () => {
                     actionRoute="/produtos"
                 />
                 <Divider sx={{ width: "100%" }} />
+                <CurrentCampaignSection />
             </Stack>
         </BasePage>
     );

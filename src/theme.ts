@@ -302,7 +302,7 @@ export const themeSettings = (mode: PaletteMode) => {
             },
             h3: {
                 fontSize: "1.5rem",
-                fontWeight: 400,
+                fontWeight: 500,
                 lineHeight: 1.2,
             },
             h4: {
