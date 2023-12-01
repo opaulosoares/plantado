@@ -13,10 +13,13 @@ import {
 import Navbar from "../../components/Navbar/Navbar";
 import AccessibilityBar from "../../components/AccessibilityBar/AccessbilityBar";
 import { ColorModeContext, spacing, tokens } from "../../theme";
+import { NavLink, useNavigate } from "react-router-dom";
 
 
 
 const CheckoutPage: React.FC = ({ children }) => {
+const navigate = useNavigate();
+  
   const colorMode = useContext(ColorModeContext);
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -129,7 +132,7 @@ const CheckoutPage: React.FC = ({ children }) => {
                 <Button
                     variant="contained"
                     onClick={() => navigate("/checkout")}
-                    tabIndex={0}
+                  tabIndex={0}
                     sx={{
                       marginTop: "5%", 
                       display: { xs: "none", md: "flex" } }}
