@@ -51,21 +51,7 @@ const navigate = useNavigate();
           <Navbar />
         </header>
         <main>
-
-          <Box
-          
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              height: "70vh",
-              margin: "2% auto",
-              maxWidth: "1200px",
-              
-              
-            }}
-          >
-            {/* Stepper */}
+{/* Stepper */}
             <Box sx={{ 
                 marginBottom: "20px",
                 maxWidth: "30%",
@@ -84,6 +70,20 @@ const navigate = useNavigate();
                 </Step>
             </Stepper>
             </Box>
+          <Box
+          
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              height: "70vh",
+              margin: "2% auto",
+              maxWidth: "1200px",
+              
+              
+            }}
+          >
+            
             <Box sx={{ 
               flexDirection: "column",
               marginBottom: "40vh"
