@@ -4,6 +4,7 @@ import React from "react";
 import { spacing, tokens } from "../../theme";
 import Navbar from "../../components/Navbar/Navbar";
 import AccessibilityBar from "../../components/AccessibilityBar/AccessbilityBar";
+import Footer from "../../components/Footer/Footer";
 
 interface BasePageProps {
     children: React.ReactNode;
@@ -28,6 +29,7 @@ const BasePage: React.FC<BasePageProps> = ({ children }) => {
                     {children}
                 </Stack>
             </main>
+            <Footer />
         </>
     );
 };

@@ -12,7 +12,7 @@ const CurrentCampaignSection: React.FC = () => {
     ];
 
     return (
-        <section style={{ width: "100%" }}>
+        <section id="inicioConteudo" style={{ width: "100%" }}>
             <Stack gap={2} py={4}>
                 <Typography
                     variant="h3"
@@ -21,7 +21,7 @@ const CurrentCampaignSection: React.FC = () => {
                     tabIndex={0}
                     aria-label="Ofertas"
                 >
-                    Natal na Plantado
+                    Ofertas válidas até o término do estoque
                 </Typography>
                 <Typography
                     variant="body1"

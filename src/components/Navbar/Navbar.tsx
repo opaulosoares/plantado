@@ -99,25 +99,24 @@ const Navbar: React.FC = () => {
                             border: `1px solid ${colors.neutral[7]}`,
                         }}
                         elevation={0}
+                        component="form"
                     >
                         <InputBase
                             size="medium"
+                            id="busca"
                             placeholder={`Digite o título do produto: "Vaso de planta" `}
                             value={inputValue}
                             fullWidth={true}
                             onChange={(event) =>
                                 setInputValue(event.target.value)
                             }
-                            onKeyDown={(event) => {
-                                if (event.key === "Enter") {
-                                    event.preventDefault();
-                                }
-                            }}
                             tabIndex={0}
                         />
                         <IconButton
                             color="primary"
+                            type="submit"
                             sx={{ background: colors.grass[5] }}
+                            onClick={() => alert("busca")}
                         >
                             <Search />
                         </IconButton>
