@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-labels */
-"use client";
 
 import { createContext, useState, useMemo } from "react";
 import { PaletteMode, ThemeOptions } from "@mui/material";

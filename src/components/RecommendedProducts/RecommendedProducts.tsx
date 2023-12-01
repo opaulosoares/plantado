@@ -3,6 +3,7 @@ import { Button, Grid, Stack } from "@mui/material";
 import db from "../../data/db.json";
 import { useMemo } from "react";
 import ProductCard from "../ProductCard/ProductCard";
+import { Home, Redo } from "@mui/icons-material";
 
 interface Props {
     productIds: [number, number, number];
@@ -19,26 +20,27 @@ function RecommendedProducts(props: Props) {
     }, [productIds]);
 
     return (
-        <Stack>
-            <Grid container spacing={2}>
+        <Stack justifyContent={"center"} alignItems={"center"} gap={4}>
+            <Grid container spacing={2} justifyContent={"center"}>
                 {products.map((item) => (
                     <Grid item xs={12} sm={6} md={4} lg={3} xl={2.4}>
                         <ProductCard key={item?.id} produto={item as any} />
                     </Grid>
                 ))}
             </Grid>
-            <Stack
-                direction="row"
-                sx={{
-                    justifyContent: "space-evenly",
-                    width: "100%",
-                    marginTop: 5,
-                }}
-            >
-                <Button variant="contained" onClick={handleResetTest}>
+            <Stack direction="row" gap={2}>
+                <Button
+                    variant="outlined"
+                    onClick={handleResetTest}
+                    startIcon={<Redo />}
+                >
                     Refazer teste
                 </Button>
-                <Button variant="contained" onClick={handleBackHome}>
+                <Button
+                    variant="contained"
+                    onClick={handleBackHome}
+                    startIcon={<Home />}
+                >
                     Voltar para pagina inicial
                 </Button>
             </Stack>

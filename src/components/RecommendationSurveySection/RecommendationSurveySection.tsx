@@ -1,3 +1,4 @@
+import { NavigateBefore, NavigateNext } from "@mui/icons-material";
 import {
   Button,
   FormControl,
@@ -52,8 +53,8 @@ function RecommendationSurveySection(props: Readonly<Props>) {
             <RadioGroup
               row
               name={item.question}
-              aria-label={item.question}
               value={item.selectedAnswer ?? null}
+              aria-label={item.question}
               onChange={(e) =>
                 handleOnRadiOGroupChanges(item.question, e.target.value)
               }
@@ -75,16 +76,21 @@ function RecommendationSurveySection(props: Readonly<Props>) {
           sx={{ justifyContent: "space-evenly", width: "100%", marginTop: 2 }}
         >
           {handleGoBack && (
-            <Button variant="contained" onClick={handleGoBack}>
+            <Button
+              variant="outlined"
+              onClick={handleGoBack}
+              startIcon={<NavigateBefore />}
+            >
               Voltar
             </Button>
           )}
           <Button
             variant="contained"
             onClick={handleGoNext}
+            endIcon={<NavigateNext />}
             disabled={!canGoNext}
           >
-            Proximo
+            Próximo
           </Button>
         </Stack>
       </Stack>
