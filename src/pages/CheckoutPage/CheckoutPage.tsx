@@ -13,6 +13,7 @@ import {
 import Navbar from "../../components/Navbar/Navbar";
 import AccessibilityBar from "../../components/AccessibilityBar/AccessbilityBar";
 import { ColorModeContext, spacing, tokens } from "../../theme";
+import { NavLink, useNavigate } from "react-router-dom";
 
 
 
@@ -20,6 +21,7 @@ const CheckoutPage: React.FC = ({ children }) => {
   const colorMode = useContext(ColorModeContext);
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const navigate = useNavigate();
 
   const [cep, setCep] = useState("");
   const [address, setAddress] = useState({
@@ -231,7 +233,9 @@ const CheckoutPage: React.FC = ({ children }) => {
               </Typography>
               <br></br>
               {/* Adicione informações do resumo do pedido aqui (foto do produto, nome, preço total) */}
-              <Button sx={{ width: "100%"}} variant="contained" type="submit">Finalizar Pedido</Button>
+              <Button 
+onClick={() => navigate("/entrar")}
+                sx={{ width: "100%"}} variant="contained" type="submit">Finalizar Pedido</Button>
             </Paper>
           </Box>
         </main>
