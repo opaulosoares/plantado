@@ -52,6 +52,7 @@ function RecommendationSurveySection(props: Readonly<Props>) {
             <RadioGroup
               row
               name={item.question}
+              aria-label={item.question}
               value={item.selectedAnswer ?? null}
               onChange={(e) =>
                 handleOnRadiOGroupChanges(item.question, e.target.value)
