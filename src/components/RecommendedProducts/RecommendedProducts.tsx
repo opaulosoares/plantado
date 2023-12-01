@@ -24,7 +24,7 @@ function RecommendedProducts(props: Props) {
       justifyContent={"center"}
       alignItems={"center"}
       gap={4}
-      sx={{ height: "calc(100vh - 250px)" }}
+      sx={{ height: "calc(100vh - 250px)", overflow: 'auto' }}
     >
       <Grid container spacing={2} justifyContent={"center"}>
         {products.map((item) => (

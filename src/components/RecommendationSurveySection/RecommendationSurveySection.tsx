@@ -28,10 +28,10 @@ export interface Props {
 
 function RecommendationSurveySection(props: Readonly<Props>) {
   const { questions, onChange, handleGoNext, handleGoBack } = props;
-  const [canGoNext, setCanGoForward] = useState(false);
+  const [canGoNext, setCanGoNext] = useState(false);
 
   useEffect(() => {
-    setCanGoForward(questions.every((question) => !!question.selectedAnswer));
+    setCanGoNext(questions.every((question) => !!question.selectedAnswer));
   }, [questions]);
 
   const handleOnRadiOGroupChanges = (question: string, value: string) => {
