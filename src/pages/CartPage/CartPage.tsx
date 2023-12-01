@@ -9,6 +9,7 @@ import {
   Grid,
   Paper,
   Checkbox,
+  Stepper
 } from "@mui/material";
 import Navbar from "../../components/Navbar/Navbar";
 import AccessibilityBar from "../../components/AccessibilityBar/AccessbilityBar";
@@ -61,6 +62,25 @@ const navigate = useNavigate();
               
             }}
           >
+            {/* Stepper */}
+            <Box sx={{ 
+                marginBottom: "20px",
+                maxWidth: "30%",
+                marginLeft: "10%"
+        
+            }}>
+            <Stepper activeStep={activeStep}>
+                <Step>
+                <StepLabel>Homepage</StepLabel>
+                </Step>
+                <Step>
+                <StepLabel>Acessórios</StepLabel>
+                </Step>
+                <Step>
+                <StepLabel>Rega</StepLabel>
+                </Step>
+            </Stepper>
+            </Box>
             <Box sx={{ 
               flexDirection: "column",
               marginBottom: "40vh"
