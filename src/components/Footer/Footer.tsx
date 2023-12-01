@@ -12,10 +12,7 @@ import {
   LocationOn,
   Info,
   ShoppingCart,
-  Share,
-  FacebookIcon,
-  TwitterIcon,
-  InstagramIcon
+  Share
 } from "@mui/icons-material";
 import { ColorModeContext, spacing, tokens } from "../../theme";
 
@@ -81,9 +78,9 @@ const Footer: React.FC = () => {
             </AccordionSummary>
             <AccordionDetails>
               <div style={{ flexDirection: "column" }}>
-                <FacebookIcon />
-                <TwitterIcon />
-                <InstagramIcon />
+               <Typography>Faceebook</Typography>
+          <Typography>Twitter</Typography>
+          <Typography>Instagram</Typography>
                 {/* Adicione mais links para redes sociais conforme necessário */}
               </div>
             </AccordionDetails>
@@ -129,9 +126,9 @@ const Footer: React.FC = () => {
 
         <div>
           <Typography variant="h6">Redes Sociais</Typography>
-          <FacebookIcon />
-          <TwitterIcon />
-          <InstagramIcon />
+          <Typography>Faceebook</Typography>
+          <Typography>Twitter</Typography>
+          <Typography>Instagram</Typography>
         </div>
       </div>
     </footer>
