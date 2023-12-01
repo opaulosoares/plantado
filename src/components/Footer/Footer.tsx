@@ -96,7 +96,7 @@ const Footer: React.FC = () => {
         style={{
           display: "flex",
           flexDirection: "row",
-          justifyContent: "space-between",
+          justifyContent: "space-around",
           alignItems: "center",
           padding: "16px",
            backgroundColor: colors.grass[1], // Escolha a cor de fundo desejada
@@ -107,8 +107,8 @@ const Footer: React.FC = () => {
       >
         <div>
           <Typography variant="h6">Localização</Typography>
-          <Typography>Endereço 1</Typography>
-          <Typography>Endereço 2</Typography>
+          <Typography>Avenida São Carlos</Typography>
+          <Typography>Nº 1004</Typography>
         </div>
 
         <div>
@@ -119,8 +119,8 @@ const Footer: React.FC = () => {
 
         <div>
           <Typography variant="h6">Produtos</Typography>
-          <Typography>Categoria 1</Typography>
-          <Typography>Categoria 2</Typography>
+          <Typography>Plantas</Typography>
+          <Typography>Vasos</Typography>
         </div>
 
         <div>
