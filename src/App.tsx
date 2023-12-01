@@ -9,6 +9,8 @@ import OrderConfirmationPage from "./pages/SuccessPage/OrderConfirmationPage";
 import CartPage from "./pages/CartPage/CartPage";
 import ProductCategoriesPage from "./pages/ProductsCategoriesPage/ProductsPage";
 import ProductPage from "./pages/ProductPage/ProductPage"
+import CheckoutPage from "./pages/CheckoutPage/CheckoutPage"
+
 function App() {
     const [theme, colorMode] = useMode();
 
@@ -35,6 +37,8 @@ function App() {
                         />
                         <Route path="/cart" element={<CartPage />} />
                         <Route path="/product" element={<ProductPage />} />
+                        <Route path="/checkout" element={<CheckoutPage />} />
+                        
                     </Routes>
                 </Router>
             </ThemeProvider>
