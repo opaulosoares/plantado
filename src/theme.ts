@@ -297,7 +297,7 @@ export const themeSettings = (mode: PaletteMode) => {
                 fontSize: "2.25rem",
                 fontWeight: 600,
                 lineHeight: 1.2,
-                color: colors.neutral[11],
+                color: colors.neutral[12],
             },
             h3: {
                 fontSize: "1.5rem",
