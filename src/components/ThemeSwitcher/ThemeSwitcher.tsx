@@ -7,7 +7,7 @@ import { ColorModeContext, checkLocalStorageTheme, tokens } from "../../theme";
 // import { Container } from './styles';
 
 interface ThemeSwitcherProps {
-    ref: any;
+    ref?: any;
 }
 
 const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({ ref }) => {
@@ -15,7 +15,6 @@ const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({ ref }) => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
 
-    /* Theme management */
     const [darkModeChecked, setDarkModeChecked] = useState(
         checkLocalStorageTheme()
     );
@@ -47,7 +46,7 @@ const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({ ref }) => {
                 )}
 
                 <Switch
-                    checked={darkModeChecked || theme.palette.mode === "dark"}
+                    checked={darkModeChecked}
                     onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                         setDarkModeChecked(event.target.checked);
                     }}

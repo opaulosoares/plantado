@@ -1,59 +1,64 @@
 import { createSlice, configureStore, PayloadAction } from "@reduxjs/toolkit";
 
-type Address = {
-    street: string;
-    number: number;
-    city: string;
-    state: string;
-    country: string;
-    zipCode: string;
-};
-
 // Definindo tipos
 export interface User {
     _id?: string;
     name?: string;
     email?: string;
-    address?: Address;
 }
 
-interface Product {
-    _id: string;
-    // outros campos do produto
-}
-
-interface CartItem extends Product {
-    amount: number;
+export interface Product {
+    id: number;
+    name: string;
+    description: string;
+    price: number;
+    discountedPrice: number;
+    hasDiscount: boolean;
+    image: string;
+    alt_text: string;
+    subcategory: string;
+    category: string;
 }
 
 interface AppState {
     isLoggedIn: boolean;
-    cart: Record<string, CartItem>;
     user: User;
-    products: Record<string, Product>;
-    users: Record<string, User>;
-    categoryData: Record<string, any>; // Ajuste conforme a estrutura real
-    bestDeals: Record<string, any>; // Ajuste conforme a estrutura real
+    cart: Product[];
+    address?: {
+        street: string;
+        number: number;
+        city: string;
+        state: string;
+        country: string;
+        zipCode: string;
+    };
+    products: { [key: string]: Product };
+    users: { [key: string]: User };
+    categoryData: { [key: string]: any };
+    bestDeals: { [key: string]: any };
 }
 
 // Estado inicial
 const initialState: AppState = {
     isLoggedIn: true,
-    cart: {},
-    user: { name: "John Doe", email: "johndoe@mail.com" },
+    user: {
+        name: "John Doe",
+        email: "johndoe@mail.com",
+    },
+    cart: [],
     products: {},
     users: {},
     categoryData: {},
     bestDeals: {},
 };
 
-// Criando um slice para o usuário
-const userSlice = createSlice({
-    name: "user",
+// Criando um único slice para tudo
+const appSlice = createSlice({
+    name: "app",
     initialState,
     reducers: {
         setUser: (state, action: PayloadAction<User>) => {
-            state.user = action.payload;
+            state.user = { ...state.user, ...action.payload };
         },
         loggedIn: (state) => {
             state.isLoggedIn = true;
@@ -61,46 +66,22 @@ const userSlice = createSlice({
         loggedOut: (state) => {
             state.isLoggedIn = false;
         },
-    },
-});
-
-// Criando um slice para o carrinho de compras
-const cartSlice = createSlice({
-    name: "cart",
-    initialState,
-    reducers: {
         addToCart: (state, action: PayloadAction<Product>) => {
-            const productId = action.payload._id;
-            state.cart[productId] = {
-                ...action.payload,
-                amount: (state.cart[productId]?.amount || 0) + 1,
-            };
+            state.cart.push(action.payload);
         },
-        removeFromCart: (state, action: PayloadAction<Product>) => {
-            const productId = action.payload._id;
-            if (state.cart[productId]?.amount === 1) {
-                delete state.cart[productId];
-            } else {
-                state.cart[productId].amount -= 1;
-            }
-        },
-        clearProductAmount: (state, action: PayloadAction<Product>) => {
-            const productId = action.payload._id;
-            delete state.cart[productId];
+        removeFromCart: (state, action: PayloadAction<number>) => {
+            state.cart = state.cart.filter(
+                (item) => item.id !== action.payload
+            );
         },
         clearCart: (state) => {
-            state.cart = {};
+            state.cart = [];
         },
-        // Outras ações relacionadas ao carrinho
     },
 });
 
-// Combinando os slices
-const rootReducer = {
-    user: userSlice.reducer,
-    cart: cartSlice.reducer,
-    // Adicione outros slices aqui conforme necessário
-};
+// Combinando o único slice
+const rootReducer = appSlice.reducer;
 
 // Criando a store
 const store = configureStore({
@@ -108,9 +89,14 @@ const store = configureStore({
 });
 
 // Exportando actions para uso em componentes
-export const { setUser, loggedIn, loggedOut } = userSlice.actions;
-export const { addToCart, removeFromCart, clearProductAmount, clearCart } =
-    cartSlice.actions;
+export const {
+    setUser,
+    loggedIn,
+    loggedOut,
+    addToCart,
+    removeFromCart,
+    clearCart,
+} = appSlice.actions;
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

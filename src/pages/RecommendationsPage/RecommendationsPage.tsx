@@ -58,7 +58,7 @@ function RecommendationsPage() {
     setRecommendedProductsIds(generateProductsId(db.produtos.plantas, 3));
   };
 
-  const handleBackHome = useEventCallback( () => {
+  const handleBackHome = useEventCallback(() => {
     navigate("/");
   }, []);
 

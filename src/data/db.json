@@ -14,12 +14,14 @@
                 "luminosidade": "media",
                 "tamanho": "medio",
                 "manutenção": "moderada",
+                "category": "plantas",
                 "alt_text": "Uma orquídea branca com longas hastes e folhas verde-escuras. Suas flores delicadas têm formato de cascata, criando uma imagem elegante."
             },
             {
                 "id": 2,
                 "name": "Alecrim",
                 "image": "https://i.ibb.co/vwHgmcV/alecrim.jpg",
+                "category": "plantas",
                 "description": "O Alecrim é uma erva aromática muito utilizada na culinária devido ao seu sabor único e aroma fresco. Além de suas propriedades culinárias, o Alecrim é conhecido por suas características medicinais e pode ser cultivado tanto em jardins quanto em vasos.",
                 "subcategory": "Especiaria",
                 "hasDiscount": false,
@@ -132,6 +134,7 @@
             {
                 "id": 9,
                 "name": "Vaso de Plástico Preto",
+                "category": "vaso",
                 "image": "https://i.ibb.co/S7V55jc/vaso-planta-preto-pp1-5ae7baea9795e8654f16437347259185-640-0.png",
                 "subcategory": "plastico",
                 "description": "Um vaso de plástico preto, ideal para o cultivo de plantas. Leve, durável e fácil de manusear, este vaso é perfeito para realçar a beleza das suas plantas.",
@@ -144,6 +147,7 @@
             {
                 "id": 10,
                 "name": "Vaso Branco Florido",
+                "category": "vaso",
                 "image": "https://i.ibb.co/kqjcFtH/lilac-3369269-640.jpg",
                 "subcategory": "ceramica",
                 "description": "Um vaso de cerâmica perfeito para o cultivo de plantas interiores, com uma textura rústica para seu ambiente.",
@@ -156,6 +160,7 @@
             {
                 "id": 11,
                 "name": "Vaso de Cerâmica Azul",
+                "category": "vaso",
                 "image": "https://i.ibb.co/1Q3L815/tropical-4008043-640.png",
                 "subcategory": "ceramica",
                 "description": "Um vaso de cerâmica rico em detalhes, ideal para um ambiente exterior, como sacadas de apartamentos ou jardins de quintal.",
@@ -168,6 +173,7 @@
             {
                 "id": 12,
                 "name": "Vaso de Inox",
+                "category": "vaso",
                 "image": "https://i.ibb.co/fYX8B5C/tulip-3170494-640.jpg",
                 "subcategory": "inox",
                 "description": "Um vaso de aço inox minimalista, ideal para pessoas que não gostam de extravagância.",
@@ -180,6 +186,7 @@
             {
                 "id": 13,
                 "name": "Vaso de Plástico Florido",
+                "category": "vaso",
                 "image": "https://i.ibb.co/m6C4xPz/succulent-plant-3520371-640.jpg",
                 "subcategory": "plastico",
                 "description": "Um vaso de plástico ",
@@ -194,6 +201,7 @@
             {
                 "id": 14,
                 "name": "Regador de Mão Verde",
+                "category": "rega",
                 "image": "https://i.ibb.co/m4SzHth/watering-can-5202988-1280.jpg",
                 "subcategory": "regador",
                 "description": "Um regador de mão verde, projetado para facilitar a irrigação de suas plantas. Seu design ergonômico torna a rega uma tarefa simples e eficiente.",
@@ -206,6 +214,7 @@
             {
                 "id": 15,
                 "name": "Regador de Mão Rosa",
+                "category": "rega",
                 "image": "https://i.ibb.co/tPgcXHx/lily-of-the-valley-4166984-640.jpg",
                 "subcategory": "regador",
                 "description": "Um regador de mão rosa, projetado para facilitar a irrigação de suas plantas. Seu design ergonômico torna a rega uma tarefa simples e eficiente.",
@@ -218,6 +227,7 @@
             {
                 "id": 16,
                 "name": "Regador de Mão Prateado",
+                "category": "rega",
                 "image": "https://i.ibb.co/Ws2YsWx/watering-can-7709917-640.jpg",
                 "subcategory": "regador",
                 "description": "Um regador de mão prateado, projetado para facilitar a irrigação de suas plantas. Seu design ergonômico torna a rega uma tarefa simples e eficiente.",
@@ -230,6 +240,7 @@
             {
                 "id": 17,
                 "name": "Regador de Mão Turquesa",
+                "category": "rega",
                 "image": "https://i.ibb.co/K6gm0Zz/snowdrop-2129403-640.jpg",
                 "subcategory": "regador",
                 "description": "Um regador de mão verde, projetado para facilitar a irrigação de suas plantas. Seu design ergonômico torna a rega uma tarefa simples e eficiente.",
@@ -242,6 +253,7 @@
             {
                 "id": 18,
                 "name": "Regador de Mão Verde",
+                "category": "rega",
                 "image": "https://i.ibb.co/zFMC4PK/watering-can-3547861-640.jpg",
                 "subcategory": "regador",
                 "description": "Um regador de mão verde, projetado para facilitar a irrigação de suas plantas. Seu design ergonômico torna a rega uma tarefa simples e eficiente. Sua capacidade é de 10 Litros",
@@ -256,6 +268,7 @@
             {
                 "id": 19,
                 "name": "Tesoura de Poda Branca",
+                "category": "acessorio",
                 "image": "https://i.ibb.co/ch8bWDm/background-1744951-1280.jpg",
                 "subcategory": "tesoura",
                 "description": "Uma tesoura de poda branca com detalhes laranjas, ideal para cuidar das suas plantas com precisão. Leve e afiada, esta tesoura é perfeita para cortes delicados.",
@@ -270,6 +283,7 @@
                 "name": "Rastelo Azul",
                 "image": "https://i.ibb.co/5xwZrXz/leaves-broom-3406799-640.jpg",
                 "subcategory": "rastelo",
+                "category": "acessorio",
                 "description": "Um rastelo com cabo de madeira e cabeça de aço inox. Perfeito para preparar sua plantação.",
                 "price": 24.99,
                 "hasDiscount": false,
@@ -280,6 +294,7 @@
             {
                 "id": 21,
                 "name": "Pá Vermelha",
+                "category": "acessorio",
                 "image": "https://i.ibb.co/gwtq1TT/gardening-2448134-640.jpg",
                 "subcategory": "pa",
                 "description": "Uma pequena pá vermelha, perfeita para pequenas plantações, como hortinhas e cultivo de temperos.",
@@ -292,6 +307,7 @@
             {
                 "id": 22,
                 "name": "Medidor de Umidade",
+                "category": "acessorio",
                 "image": "https://i.ibb.co/X7HVxML/the-soil-profile-2412916-1280.jpg",
                 "subcategory": "sensores",
                 "description": "Um medidor de umidade para medir e promover um solo de qualidade para suas plantas.",
@@ -304,6 +320,7 @@
             {
                 "id": 23,
                 "name": "Regador Automático Giratório",
+                "category": "acessorio",
                 "image": "https://i.ibb.co/1G3L1xy/water-sprinklers-880970-640.jpg",
                 "subcategory": "rega",
                 "description": "Um regador automático com 2 bicos. Sua base gira para oferecer uma cobertura de até 10 metros de distância.",
@@ -315,13 +332,14 @@
             },
             {
                 "id": 24,
-                "name": "Bico Especial para Mangueiras",
+                "name": "Bico Especial de Mangueiras",
+                "category": "acessorio",
                 "image": "https://i.ibb.co/0m0rqgV/hose-5473324-640.jpg",
                 "subcategory": "rega",
                 "description": "Esse bico possui 8 diferentes tipos de saída de água, que oferecem diferentes pressões e vazões de água, se adaptando perfeitamente à sua plantação",
                 "price": 5.99,
-                "hasDiscount": false,
-                "discountedPrice": 5.99,
+                "hasDiscount": true,
+                "discountedPrice": 2.99,
                 "onStock": 12,
                 "alt_text": "Um bico em formato de lanterna, a área para segurar é de cor cinza com um gatilho preto e vermelho, sua cabeça é preta e vermelha, e possui diferentes opções de saída de água."
             }
