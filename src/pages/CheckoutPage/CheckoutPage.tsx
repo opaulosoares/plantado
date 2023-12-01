@@ -50,20 +50,7 @@ const CheckoutPage: React.FC = ({ children }) => {
           <Navbar />
         </header>
         <main>
-
-        <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              height: "20vh",
-              marginTop: "10vh",
-              maxWidth: "60%",
-              // textAlign: "center",
-              flexDirection: "column",
-            }}
-          >
-          <Box sx={{ 
+<Box sx={{ 
                 marginBottom: "20px",
                 maxWidth: "30%",
                 marginLeft: "10%"
@@ -81,6 +68,19 @@ const CheckoutPage: React.FC = ({ children }) => {
                 </Step>
             </Stepper>
             </Box>
+        <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              height: "20vh",
+              marginTop: "10vh",
+              maxWidth: "60%",
+              // textAlign: "center",
+              flexDirection: "column",
+            }}
+          >
+          
           <img
               src="https://i.ibb.co/2SY1wzs/Group-1.png"
               alt="Credit Card"
