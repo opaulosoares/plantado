@@ -42,8 +42,8 @@ function RecommendationSurveySection(props: Readonly<Props>) {
   };
 
   return (
-    <form>
-      <Stack sx={{ gap: 3, alignItems: "center" }}>
+    <form style={{height: 'calc(100vh - 250px)'}}>
+      <Stack sx={{ gap: 3, alignItems: "center", height: "100%" }}>
         {questions.map((item) => (
           <FormControl
             key={item.question}
@@ -73,12 +73,13 @@ function RecommendationSurveySection(props: Readonly<Props>) {
         ))}
         <Stack
           direction="row"
-          sx={{ justifyContent: "space-evenly", width: "100%", marginTop: 2 }}
+          sx={{ justifyContent: "space-evenly", width: "100%", margin: "auto auto 16px auto" }}
         >
           {handleGoBack && (
             <Button
               variant="outlined"
               onClick={handleGoBack}
+              size="large"
               startIcon={<NavigateBefore />}
             >
               Voltar
@@ -87,6 +88,7 @@ function RecommendationSurveySection(props: Readonly<Props>) {
           <Button
             variant="contained"
             onClick={handleGoNext}
+            size="large"
             endIcon={<NavigateNext />}
             disabled={!canGoNext}
           >
