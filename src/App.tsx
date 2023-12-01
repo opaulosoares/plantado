@@ -6,8 +6,8 @@ import VLibras from "@djpfs/react-vlibras";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RecommendationsPage from "./pages/RecommendationsPage/RecommendationsPage";
 import OrderConfirmationPage from "./pages/SuccessPage/OrderConfirmationPage";
-import Error404Page from "./pages/Error404Page/Error404Page";
 import CartPage from "./pages/CartPage/CartPage";
+import ProductCategoriesPage from "./pages/ProductsCategoriesPage/ProductsPage";
 
 function App() {
     const [theme, colorMode] = useMode();
@@ -24,6 +24,10 @@ function App() {
                         <Route
                             path="/recomendacoes"
                             element={<RecommendationsPage />}
+                        />
+                        <Route
+                            path="/categoria/:category"
+                            element={<ProductCategoriesPage />}
                         />
                         <Route
                             path="/success"

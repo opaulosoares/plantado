@@ -130,7 +130,7 @@
                 "alt_text": "A imagem exibe um Lírio da Paz, uma planta que possui muitas folhas verdes sinuosas e algumas flores brancas em formato oval. "
             }
         ],
-        "vaso": [
+        "vasos": [
             {
                 "id": 9,
                 "name": "Vaso de Plástico Preto",
@@ -264,7 +264,7 @@
                 "alt_text": "Um regador de mão de cor verde com bico preto removível. Possui design simples uma alça grande para facilitar o manuseio. Não possui detalhes em sua superfície."
             }
         ],
-        "acessorio": [
+        "acessorios": [
             {
                 "id": 19,
                 "name": "Tesoura de Poda Branca",

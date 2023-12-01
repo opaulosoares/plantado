@@ -14,7 +14,7 @@ const Homepage: React.FC = () => {
           callToActionList={[
             {
               text: "Confira nossos produtos",
-              path: "/productos",
+              path: "/produtos",
               variant: "primary",
             },
             {

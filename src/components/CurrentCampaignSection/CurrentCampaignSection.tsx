@@ -6,8 +6,8 @@ import { Grid, Stack, Typography } from "@mui/material";
 const CurrentCampaignSection: React.FC = () => {
     const produtosComDesconto = [
         ...db.produtos.plantas.filter((planta) => planta.hasDiscount),
-        ...db.produtos.vaso.filter((vaso) => vaso.hasDiscount),
-        ...db.produtos.acessorio.filter((acessorio) => acessorio.hasDiscount),
+        ...db.produtos.vasos.filter((vaso) => vaso.hasDiscount),
+        ...db.produtos.acessorios.filter((acessorio) => acessorio.hasDiscount),
         ...db.produtos.rega.filter((rega) => rega.hasDiscount),
     ];
 
