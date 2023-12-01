@@ -20,8 +20,18 @@ const ProductCard = ({ produto }: { produto: Product }) => {
     const dispatch = useDispatch();
 
     return (
-        <Card>
-            <CardActionArea>
+        <Card
+            sx={{
+                width: "100%",
+                height: "100%",
+            }}
+        >
+            <CardActionArea
+                sx={{
+                    width: "100%",
+                    height: "100%",
+                }}
+            >
                 <Box
                     sx={{
                         minWidth: "100%",

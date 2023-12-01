@@ -97,18 +97,19 @@ function RecommendationsPage() {
 
     return (
         <BasePage>
-            <Stepper
-                activeStep={currentStep}
-                alternativeLabel
-                sx={{ marginBottom: 5, marginTop: 3 }}
-            >
-                {stepperSteps.map((title) => (
-                    <Step key={title}>
-                        <StepLabel>{title}</StepLabel>
-                    </Step>
-                ))}
-            </Stepper>
-            <section style={{ marginTop: 16, marginBottom: 16 }}>
+            <section>
+                <Stepper
+                    activeStep={currentStep}
+                    alternativeLabel
+                    sx={{ marginBottom: 5, marginTop: 3 }}
+                >
+                    {stepperSteps.map((title) => (
+                        <Step key={title}>
+                            <StepLabel>{title}</StepLabel>
+                        </Step>
+                    ))}
+                </Stepper>
+
                 {stepperComponent}
             </section>
         </BasePage>

@@ -19,9 +19,17 @@ const CurrentCampaignSection: React.FC = () => {
                     fontWeight={700}
                     component="h3"
                     tabIndex={0}
-                    aria-label="Descontos imperdíveis"
+                    aria-label="Ofertas"
                 >
-                    Descontos imperdíveis
+                    Natal na Plantado
+                </Typography>
+                <Typography
+                    variant="body1"
+                    component="p"
+                    tabIndex={0}
+                    aria-label="Validade da promoção"
+                >
+                    Aproveite ofertas exclusivas até dia 26/12
                 </Typography>
                 <Grid container spacing={2}>
                     {produtosComDesconto.map((produto) => (
