@@ -6,13 +6,17 @@ import { tokens } from "../../theme";
 interface HeroSectionProps {
     primaryText: string;
     secondaryText: string;
-    callToAction?: string;
-    actionRoute?: string;
+    callToActionList: Array<{
+        text: string;
+        path: string;
+        variant: "primary" | "secondary";
+    }>;
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({
     primaryText,
     secondaryText,
+    callToActionList,
 }) => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
