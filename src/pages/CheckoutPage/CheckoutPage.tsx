@@ -9,6 +9,7 @@ import {
   Grid,
   Paper,
   Checkbox,
+  Stepper
 } from "@mui/material";
 import Navbar from "../../components/Navbar/Navbar";
 import AccessibilityBar from "../../components/AccessibilityBar/AccessbilityBar";
@@ -22,6 +23,7 @@ const CheckoutPage: React.FC = ({ children }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const navigate = useNavigate();
+  const [activeStep, setActiveStep] = useState(2); // Assuming Rega is the third step
 
   const [cep, setCep] = useState("");
   const [address, setAddress] = useState({
