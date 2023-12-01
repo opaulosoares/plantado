@@ -10,3 +10,9 @@ a {
     text-decoration: none;
     color: inherit;
 }
+
+.alto-contraste{
+    mix-blend-mode: difference; /* Ou outro modo de mistura de sua escolha */
+    filter: contrast(200%); /* Ajuste conforme necessário */
+  }
+  
