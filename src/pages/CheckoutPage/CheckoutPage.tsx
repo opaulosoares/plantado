@@ -259,7 +259,7 @@ const CheckoutPage: React.FC = ({ children }) => {
               <br></br>
               {/* Adicione informações do resumo do pedido aqui (foto do produto, nome, preço total) */}
               <Button 
-onClick={() => navigate("/entrar")}
+                onClick={() => navigate("/success")}
                 sx={{ width: "100%"}} variant="contained" type="submit">Finalizar Pedido</Button>
             </Paper>
           </Box>
