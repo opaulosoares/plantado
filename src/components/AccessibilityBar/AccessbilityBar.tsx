@@ -7,7 +7,6 @@ const AccessibilityBar: React.FC = () => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
     const colorMode = useContext(ColorModeContext);
-    const [legacyColorMode, setLegacyColorMode] = useState("");
 
     const handleZoomIn = () => {
         const root = document.documentElement;

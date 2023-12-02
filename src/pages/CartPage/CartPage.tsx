@@ -13,10 +13,13 @@ import {
 import Navbar from "../../components/Navbar/Navbar";
 import AccessibilityBar from "../../components/AccessibilityBar/AccessbilityBar";
 import { ColorModeContext, spacing, tokens } from "../../theme";
+import { NavLink, useNavigate } from "react-router-dom";
 
 
 
 const CheckoutPage: React.FC = ({ children }) => {
+const navigate = useNavigate();
+  
   const colorMode = useContext(ColorModeContext);
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -124,12 +127,12 @@ const CheckoutPage: React.FC = ({ children }) => {
                 </Typography>
                 <hr></hr>
                 <Typography tabindex="0" variant="h5" gutterBottom>
-                  Preço total: $20.00
+                  Preço total: $5.99
                 </Typography>
                 <Button
                     variant="contained"
                     onClick={() => navigate("/checkout")}
-                    tabIndex={0}
+                  tabIndex={0}
                     sx={{
                       marginTop: "5%", 
                       display: { xs: "none", md: "flex" } }}

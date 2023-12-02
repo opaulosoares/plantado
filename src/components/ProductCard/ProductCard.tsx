@@ -13,11 +13,14 @@ import { tokens } from "../../theme";
 import { useDispatch } from "react-redux";
 import { AddShoppingCart, Discount, Visibility } from "@mui/icons-material";
 import { addToCart, Product } from "../../app/store";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const ProductCard = ({ produto }: { produto: Product }) => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+    
 
     return (
         <Card
@@ -31,8 +34,10 @@ const ProductCard = ({ produto }: { produto: Product }) => {
                     width: "100%",
                     height: "100%",
                 }}
+            onClick={() => navigate("/entrar")}
+                
             >
-                <Box
+                <Box 
                     sx={{
                         minWidth: "100%",
                         maxWidth: "100%",
