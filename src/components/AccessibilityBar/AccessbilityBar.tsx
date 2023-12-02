@@ -1,4 +1,11 @@
-import { IconButton, Paper, Stack, Typography, useTheme } from "@mui/material";
+import {
+    Button,
+    IconButton,
+    Paper,
+    Stack,
+    Typography,
+    useTheme,
+} from "@mui/material";
 import React, { useContext, useState } from "react";
 import { ColorModeContext, spacing, tokens } from "../../theme";
 import { Contrast, TextDecrease, TextIncrease } from "@mui/icons-material";
@@ -7,6 +14,7 @@ const AccessibilityBar: React.FC = () => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
     const colorMode = useContext(ColorModeContext);
+    const [contrastMode, setContrastMode] = useState(false);
 
     const handleZoomIn = () => {
         const root = document.documentElement;
@@ -26,6 +34,7 @@ const AccessibilityBar: React.FC = () => {
     };
 
     const handleContrast = () => {
+        setContrastMode(!contrastMode);
         document.body.classList.toggle("contrast-mode");
     };
 
@@ -93,12 +102,14 @@ const AccessibilityBar: React.FC = () => {
                     <TextIncrease />
                 </IconButton>
 
-                <IconButton size="small" onClick={handleContrast}>
-                    <Stack flexDirection={"row"} alignItems={"center"} gap={1}>
-                        <Contrast />
-                        <Typography variant="body2">Contraste</Typography>
-                    </Stack>
-                </IconButton>
+                <Button
+                    size="small"
+                    onClick={handleContrast}
+                    startIcon={<Contrast />}
+                    variant={contrastMode ? "contained" : "outlined"}
+                >
+                    Contraste
+                </Button>
             </Stack>
         </Paper>
     );

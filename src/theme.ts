@@ -373,8 +373,10 @@ export const checkLocalStorageTheme = () => {
         localStoragePreference === "dark" ||
         localStoragePreference === "light"
     ) {
+        document.body.dataset.theme = localStoragePreference;
         return localStoragePreference === "dark" ? true : false;
     } else {
+        document.body.dataset.theme = systemPrefersDarkMode ? "dark" : "light";
         return systemPrefersDarkMode ? true : false;
     }
 };
@@ -388,8 +390,14 @@ export const useMode = () => {
             localStoragePreference === "dark" ||
             localStoragePreference === "light"
         ) {
+            document.body.dataset.theme = localStoragePreference;
+
             return localStoragePreference;
         } else {
+            document.body.dataset.theme = systemPrefersDarkMode
+                ? "dark"
+                : "light";
+
             return systemPrefersDarkMode ? "dark" : "light";
         }
     };

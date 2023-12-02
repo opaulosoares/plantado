@@ -1,0 +1,9 @@
+.card-item-btn-container {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+}
+
+.card-item-btn {
+	cursor: pointer;
+}

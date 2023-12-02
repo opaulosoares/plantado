@@ -10,9 +10,22 @@ a {
     text-decoration: none;
     color: inherit;
 }
+body.contrast-mode[data-theme="dark"] {
+    background-color: black;
+}
 
-body.contrast-mode {
-    filter: invert(1) grayscale(1);
-    background-color: #000;
-    color: #fff;
+body.contrast-mode[data-theme="dark"] .MuiStack-root,
+body.contrast-mode[data-theme="dark"] .MuiPaper-root {
+    background-color: black;
+}
+
+body.contrast-mode[data-theme="dark"] .MuiTypography-root,
+body.contrast-mode[data-theme="dark"] a {
+    color: yellow;
+    fill: yellow;
+}
+
+body.contrast-mode[data-theme="light"] .MuiStack-root,
+body.contrast-mode[data-theme="light"] .MuiPaper-root {
+    background-color: white;
 }
