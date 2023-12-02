@@ -9,6 +9,9 @@ import {
   Grid,
   Paper,
   Checkbox,
+  Stepper,
+  Step,
+  StepLabel
 } from "@mui/material";
 import Navbar from "../../components/Navbar/Navbar";
 import AccessibilityBar from "../../components/AccessibilityBar/AccessbilityBar";
@@ -22,6 +25,7 @@ const CheckoutPage: React.FC = ({ children }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const navigate = useNavigate();
+  const [activeStep, setActiveStep] = useState(2); // Assuming Rega is the third step
 
   const [cep, setCep] = useState("");
   const [address, setAddress] = useState({
@@ -46,7 +50,24 @@ const CheckoutPage: React.FC = ({ children }) => {
           <Navbar />
         </header>
         <main>
-
+<Box sx={{ 
+                marginBottom: "20px",
+                maxWidth: "30%",
+                marginLeft: "10%"
+        
+            }}>
+            <Stepper activeStep={activeStep}>
+                <Step>
+                <StepLabel>Produto Escolhido</StepLabel>
+                </Step>
+                <Step>
+                <StepLabel>Carrinho</StepLabel>
+                </Step>
+                <Step>
+                <StepLabel>Pagamento</StepLabel>
+                </Step>
+            </Stepper>
+            </Box>
         <Box
             sx={{
               display: "flex",
@@ -59,6 +80,7 @@ const CheckoutPage: React.FC = ({ children }) => {
               flexDirection: "column",
             }}
           >
+          
           <img
               src="https://i.ibb.co/2SY1wzs/Group-1.png"
               alt="Credit Card"
@@ -237,7 +259,7 @@ const CheckoutPage: React.FC = ({ children }) => {
               <br></br>
               {/* Adicione informações do resumo do pedido aqui (foto do produto, nome, preço total) */}
               <Button 
-onClick={() => navigate("/entrar")}
+                onClick={() => navigate("/success")}
                 sx={{ width: "100%"}} variant="contained" type="submit">Finalizar Pedido</Button>
             </Paper>
           </Box>

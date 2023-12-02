@@ -9,6 +9,9 @@ import {
   Grid,
   Paper,
   Checkbox,
+  Stepper,
+  Step,
+  StepLabel
 } from "@mui/material";
 import Navbar from "../../components/Navbar/Navbar";
 import AccessibilityBar from "../../components/AccessibilityBar/AccessbilityBar";
@@ -19,7 +22,8 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 const CheckoutPage: React.FC = ({ children }) => {
 const navigate = useNavigate();
-  
+  const [activeStep, setActiveStep] = useState(1); // Assuming Rega is the third step
+
   const colorMode = useContext(ColorModeContext);
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -47,7 +51,25 @@ const navigate = useNavigate();
           <Navbar />
         </header>
         <main>
-
+{/* Stepper */}
+            <Box sx={{ 
+                marginBottom: "20px",
+                maxWidth: "30%",
+                marginLeft: "10%"
+        
+            }}>
+            <Stepper activeStep={activeStep}>
+                <Step>
+                <StepLabel>Produto Escolhido</StepLabel>
+                </Step>
+                <Step>
+                <StepLabel>Carrinho</StepLabel>
+                </Step>
+                <Step>
+                <StepLabel>Pagamento</StepLabel>
+                </Step>
+            </Stepper>
+            </Box>
           <Box
           
             sx={{
@@ -61,6 +83,7 @@ const navigate = useNavigate();
               
             }}
           >
+            
             <Box sx={{ 
               flexDirection: "column",
               marginBottom: "40vh"
