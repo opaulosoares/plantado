@@ -41,6 +41,7 @@ const Navbar: React.FC = () => {
                 borderBottom: `1px solid ${colors.neutralTransparent[8]}`,
             }}
             role="navigation"
+            id="menuPrincipal"
         >
             <Stack
                 sx={{
@@ -164,7 +165,10 @@ const Navbar: React.FC = () => {
                         <IconButton
                             color="primary"
                             type="submit"
-                            sx={{ background: colors.grass[5] }}
+                            sx={{
+                                background: colors.grass[12],
+                                color: colors.grass[1],
+                            }}
                             onClick={() => alert("busca")}
                         >
                             <Search />

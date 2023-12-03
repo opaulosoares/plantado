@@ -20,49 +20,37 @@ const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({ ref }) => {
     );
 
     return (
-        <motion.div
-            initial={{ y: 10, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -10, opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            style={{
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-            }}
-        >
-            <Stack direction="row" justifyContent="center" alignItems="center">
-                {darkModeChecked || theme.palette.mode === "dark" ? (
-                    <Nightlight sx={{ fill: colors.neutral[12] }} />
-                ) : (
-                    <motion.div
-                        initial={{ y: -10, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 0.2 }}
-                        style={{ display: "flex" }}
-                    >
-                        <LightMode sx={{ fill: colors.neutral[12] }} />
-                    </motion.div>
-                )}
+        <Stack direction="row" justifyContent="center" alignItems="center">
+            {darkModeChecked || theme.palette.mode === "dark" ? (
+                <Nightlight sx={{ fill: colors.neutral[12] }} />
+            ) : (
+                <motion.div
+                    initial={{ y: -10, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.2 }}
+                    style={{ display: "flex" }}
+                >
+                    <LightMode sx={{ fill: colors.neutral[12] }} />
+                </motion.div>
+            )}
 
-                <Switch
-                    checked={darkModeChecked}
-                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                        setDarkModeChecked(event.target.checked);
-                    }}
-                    tabIndex={0}
-                    ref={ref}
-                    onClick={colorMode.toggleColorMode}
-                    inputProps={{
-                        "aria-label": "Alternar entre os modos de cores",
-                        "aria-description":
-                            "Botão para alternar entre os modos de cores claro e escuro",
-                        "aria-details":
-                            "Ícone de uma lua e um sol, representando os modos de cores escuro e claro, respectivamente.",
-                    }}
-                />
-            </Stack>
-        </motion.div>
+            <Switch
+                checked={darkModeChecked}
+                onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                    setDarkModeChecked(event.target.checked);
+                }}
+                tabIndex={0}
+                ref={ref}
+                onClick={colorMode.toggleColorMode}
+                inputProps={{
+                    "aria-label": "Alternar entre os modos de cores",
+                    "aria-description":
+                        "Botão para alternar entre os modos de cores claro e escuro",
+                    "aria-details":
+                        "Ícone de uma lua e um sol, representando os modos de cores escuro e claro, respectivamente.",
+                }}
+            />
+        </Stack>
     );
 };
 

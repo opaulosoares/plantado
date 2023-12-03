@@ -5,7 +5,7 @@ import AccessForm from "../../components/AccessForm/AccessForm";
 const LoginPage: React.FC = () => {
     return (
         <BasePage>
-            <section id="inicioConteudo">
+            <section id="inicioConteudo" style={{ height: "100%" }}>
                 <AccessForm />
             </section>
         </BasePage>

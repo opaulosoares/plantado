@@ -24,7 +24,10 @@ const BasePage: React.FC<BasePageProps> = ({ children }) => {
                 <Stack
                     sx={{
                         px: spacing.GLOBAL_HORIZONTAL_MARGIN,
+                        py: 6,
                     }}
+                    height={"100%"}
+                    width={"100%"}
                 >
                     {children}
                 </Stack>

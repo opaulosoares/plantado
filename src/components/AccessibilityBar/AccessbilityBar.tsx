@@ -53,7 +53,7 @@ const AccessibilityBar: React.FC = () => {
                 direction={"row"}
                 gap={2}
                 sx={{
-                    fontSize: "0.8em",
+                    fontSize: "0.7em",
                     fontWeight: 600,
                     display: { xs: "none", md: "flex" },
                 }}
@@ -106,7 +106,7 @@ const AccessibilityBar: React.FC = () => {
                     size="small"
                     onClick={handleContrast}
                     startIcon={<Contrast />}
-                    variant={contrastMode ? "contained" : "outlined"}
+                    variant={contrastMode ? "contained" : "text"}
                 >
                     Contraste
                 </Button>

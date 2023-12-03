@@ -35,20 +35,11 @@ function ProductCategoriesPage() {
 
     return (
         <BasePage>
-            <div>
-                <Typography
-                    align="center"
-                    variant="h3"
-                    sx={{
-                        marginTop: 8,
-                    }}
-                    tabIndex={0}
-                >
-                    {category === "acessorios"
-                        ? "Acessórios"
-                        : capitalize(category)}
-                </Typography>
-            </div>
+            <Typography align="center" variant="h3" tabIndex={0}>
+                {category === "acessorios"
+                    ? "Acessórios"
+                    : capitalize(category)}
+            </Typography>
 
             <Alert
                 icon={false}

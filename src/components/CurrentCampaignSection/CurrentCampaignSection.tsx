@@ -4,7 +4,7 @@ import ProductCard from "../ProductCard/ProductCard";
 import { Grid, Stack, Typography } from "@mui/material";
 import { NavLink, useNavigate } from "react-router-dom";
 const CurrentCampaignSection: React.FC = () => {
-    const navigate = useNavigate();    
+    const navigate = useNavigate();
     const produtosComDesconto = [
         ...db.produtos.plantas.filter((planta) => planta.hasDiscount),
         ...db.produtos.vasos.filter((vaso) => vaso.hasDiscount),
@@ -13,8 +13,8 @@ const CurrentCampaignSection: React.FC = () => {
     ];
 
     return (
-        <section id="inicioConteudo" style={{ width: "100%" }}>
-            <Stack gap={2} py={4}>
+        <section id="inicioConteudo" style={{ width: "100%", height: "100%" }}>
+            <Stack gap={2} py={4} height={"100%"}>
                 <Typography
                     variant="h3"
                     fontWeight={700}
@@ -32,7 +32,7 @@ const CurrentCampaignSection: React.FC = () => {
                 >
                     Aproveite ofertas exclusivas até dia 26/12
                 </Typography>
-                <Grid container spacing={2}>
+                <Grid container spacing={2} height={"100%"}>
                     {produtosComDesconto.map((produto) => (
                         <Grid
                             key={produto.id}
@@ -42,8 +42,12 @@ const CurrentCampaignSection: React.FC = () => {
                             md={4}
                             lg={3}
                             xl={2.4}
+                            height={"100%"}
                         >
-                            <ProductCard onClick={() => navigate("/product")} produto={produto} />
+                            <ProductCard
+                                onClick={() => navigate("/product")}
+                                produto={produto}
+                            />
                         </Grid>
                     ))}
                 </Grid>

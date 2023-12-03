@@ -87,8 +87,22 @@ const LoginForm: React.FC<{ onToggle: () => void }> = ({ onToggle }) => {
                         }}
                     />
                 </Stack>
+                <Button
+                    variant="contained"
+                    onClick={() => console.log(email, password)}
+                >
+                    Entrar
+                </Button>
             </Stack>
-            <Button onClick={onToggle}>Não é cliente? Cadastre-se aqui</Button>
+            <Stack
+                direction={{ xs: "column", md: "row" }}
+                justifyContent={{ md: "space-between" }}
+            >
+                <Button onClick={onToggle}>Esqueceu a senha?</Button>
+                <Button onClick={onToggle}>
+                    Não é cliente? Cadastre-se aqui
+                </Button>
+            </Stack>
         </Stack>
     );
 };
@@ -160,15 +174,17 @@ const AccessForm: React.FC = () => {
     };
 
     return (
-        <section>
+        <section style={{ height: "100%" }}>
             <Stack
-                justifyContent={"center"}
+                justifyContent={"flex-start"}
                 alignItems={"center"}
                 height={"100%"}
                 py={{ xs: 4, md: 8 }}
             >
                 {showLoginForm ? (
-                    <LoginForm onToggle={handleToggleForm} />
+                    <Stack>
+                        <LoginForm onToggle={handleToggleForm} />
+                    </Stack>
                 ) : (
                     <SignUpForm onToggle={handleToggleForm} />
                 )}
