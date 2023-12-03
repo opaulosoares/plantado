@@ -8,8 +8,9 @@ import RecommendationsPage from "./pages/RecommendationsPage/RecommendationsPage
 import OrderConfirmationPage from "./pages/SuccessPage/OrderConfirmationPage";
 import CartPage from "./pages/CartPage/CartPage";
 import ProductCategoriesPage from "./pages/ProductsCategoriesPage/ProductsPage";
-import ProductPage from "./pages/ProductPage/ProductPage"
-import CheckoutPage from "./pages/CheckoutPage/CheckoutPage"
+import ProductPage from "./pages/ProductPage/ProductPage";
+import CheckoutPage from "./pages/CheckoutPage/CheckoutPage";
+import Error404Page from "./pages/Error404Page/Error404Page";
 
 function App() {
     const [theme, colorMode] = useMode();
@@ -36,9 +37,9 @@ function App() {
                             element={<OrderConfirmationPage />}
                         />
                         <Route path="/cart" element={<CartPage />} />
-                        <Route path="/product" element={<ProductPage />} />
+                        <Route path="/produto/:id" element={<ProductPage />} />
                         <Route path="/checkout" element={<CheckoutPage />} />
-                        
+                        <Route path="*" element={<Error404Page />} />
                     </Routes>
                 </Router>
             </ThemeProvider>

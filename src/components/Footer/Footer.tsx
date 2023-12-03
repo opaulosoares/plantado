@@ -101,7 +101,7 @@ const Footer: React.FC = () => {
                         flexWrap={"wrap"}
                     >
                         {hierarchy.map((categoria) => (
-                            <Stack>
+                            <Stack key={categoria.categoria}>
                                 <Typography
                                     aria-label="Título categoria"
                                     variant="h5"
@@ -113,7 +113,7 @@ const Footer: React.FC = () => {
                                 <List>
                                     {categoria.subcategorias.map(
                                         (subcategoria) => (
-                                            <ListItem>
+                                            <ListItem key={subcategoria}>
                                                 <Typography
                                                     variant="body2"
                                                     aria-label="Título subcategoria"

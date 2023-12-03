@@ -1,6 +1,12 @@
 import {
     Avatar,
     Button,
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogContentText,
+    DialogTitle,
+    Divider,
     IconButton,
     ListItemIcon,
     ListItemText,
@@ -16,10 +22,47 @@ import { Logout, Person } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, loggedIn, loggedOut } from "../../app/store";
 import { ColorModeContext, checkLocalStorageTheme, tokens } from "../../theme";
-import { useTheme } from "@emotion/react";
+import { useTheme } from "@mui/material";
+
+interface ConfirmationModalProps {
+    open: boolean;
+    onClose: () => void;
+    onConfirm: () => void;
+    message: string;
+}
+
+const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
+    open,
+    onClose,
+    onConfirm,
+    message,
+}) => {
+    return (
+        <Dialog open={open} onClose={onClose}>
+            <DialogTitle>
+                <Typography>Deseja realmente sair?</Typography>
+            </DialogTitle>
+
+            <DialogContent>
+                <DialogContentText>{message}</DialogContentText>
+            </DialogContent>
+            <Divider />
+
+            <DialogActions sx={{ px: 2, py: 2 }}>
+                <Button onClick={onClose} variant="outlined" color="primary">
+                    Cancelar
+                </Button>
+                <Button onClick={onConfirm} variant="contained" color="primary">
+                    Confirmar
+                </Button>
+            </DialogActions>
+        </Dialog>
+    );
+};
 
 const UserAvatarDrawer: React.FC = () => {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+    const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false); // Adiciona o estado para o modal
     const open = Boolean(anchorEl);
     const dispatch = useDispatch();
     const colorMode = useContext(ColorModeContext);
@@ -41,19 +84,40 @@ const UserAvatarDrawer: React.FC = () => {
         checkLocalStorageTheme()
     );
 
+    const handleLogoutClick = () => {
+        setIsLogoutModalOpen(true); // Abre o modal de confirmação
+        handleClose(); // Fecha o menu
+    };
+
+    const handleLogoutConfirmed = () => {
+        dispatch(loggedOut());
+        setIsLogoutModalOpen(false); // Fecha o modal de confirmação
+    };
+
+    const handleLogoutCancelled = () => {
+        setIsLogoutModalOpen(false); // Fecha o modal de confirmação
+    };
+
     return (
         <>
             <Stack
                 direction={"row"}
                 alignItems={"center"}
                 gap={1.75}
-                sx={{ cursor: "pointer" }}
+                sx={{
+                    cursor: "pointer",
+                    bgcolor: "transparent",
+                    border: "none",
+                }}
                 tabIndex={0}
                 onClick={handleClicked}
                 aria-controls="user-menu"
                 aria-haspopup="true"
                 aria-expanded={open ? "true" : undefined}
+                aria-label="Abrir menu usuário"
+                aria-description="Botão que abre um menu do usuário, para modificar perfil, tema da loja ou sair. Possui a foto do usuário."
                 role="button"
+                component={"button"}
                 borderRadius={2}
                 id="menubutton1"
                 onKeyDown={(e: any) => {
@@ -62,15 +126,15 @@ const UserAvatarDrawer: React.FC = () => {
                         e.key === "Enter" ||
                         e.key === "Space"
                     ) {
+                        e.preventDefault();
                         handleClicked(e);
                     }
                 }}
             >
-                <Avatar />
-                <Stack direction={"column"}>
-                    <Typography variant="h5">{userData.name}</Typography>
-                    <Typography variant="body1">{userData.email}</Typography>
-                </Stack>
+                <Avatar
+                    imgProps={{ loading: "lazy" }}
+                    src="https://thispersondoesnotexist.com"
+                />
             </Stack>
 
             <Menu
@@ -85,22 +149,48 @@ const UserAvatarDrawer: React.FC = () => {
                     "aria-labelledby": "menubutton1",
                 }}
             >
-                <MenuItem tabIndex={0} id="mi1">
+                <MenuItem
+                    id="mi0"
+                    aria-label="informações usuário"
+                    aria-description="Seção com nome e e-mail do usuário"
+                >
+                    <Stack direction={"column"} tabIndex={-1}>
+                        <Typography variant="h6">{userData.name}</Typography>
+                        <Typography variant="body2">
+                            {userData.email}
+                        </Typography>
+                    </Stack>
+                </MenuItem>
+
+                <Divider sx={{ width: "100%" }} />
+                <MenuItem
+                    tabIndex={0}
+                    id="mi1"
+                    aria-label="Meu perfil"
+                    aria-description="Botão que leva para a página de perfil do usuário"
+                >
                     <ListItemIcon>
                         <Person />
                     </ListItemIcon>
                     <ListItemText>Meu perfil</ListItemText>
                 </MenuItem>
 
-                <MenuItem id="mi2">
+                <MenuItem
+                    id="mi2"
+                    tabIndex={0}
+                    aria-label="Tema"
+                    aria-description="Botão que troca o tema da loja entre claro e escuro"
+                >
                     <ThemeSwitcher />
                 </MenuItem>
 
                 <MenuItem
-                    onClick={() => dispatch(loggedOut())}
+                    onClick={() => handleLogoutClick()}
                     tabIndex={0}
                     role="menuitem"
                     id="mi3"
+                    aria-label="Sair"
+                    aria-description="Botão que permite que o usuário saia da loja"
                 >
                     <ListItemIcon>
                         <Logout fontSize="small" />
@@ -108,6 +198,12 @@ const UserAvatarDrawer: React.FC = () => {
                     <ListItemText>Sair</ListItemText>
                 </MenuItem>
             </Menu>
+            <ConfirmationModal
+                open={isLogoutModalOpen}
+                onClose={handleLogoutCancelled}
+                onConfirm={handleLogoutConfirmed}
+                message="Tem certeza de que deseja sair da sua conta? Todas os dados dessa sessão de navegação serão perdidos."
+            />
         </>
     );
 };

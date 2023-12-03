@@ -77,7 +77,7 @@ const LoginForm: React.FC<{ onToggle: () => void }> = ({ onToggle }) => {
                     />
                 </Stack>
                 <Stack>
-                    <InputLabel htmlFor="email-usuario">Senha</InputLabel>
+                    <InputLabel htmlFor="senha-usuario">Senha</InputLabel>
                     <TextField
                         id="senha-usuario"
                         placeholder="Batata1234"

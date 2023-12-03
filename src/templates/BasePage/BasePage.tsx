@@ -20,6 +20,7 @@ const BasePage: React.FC<BasePageProps> = ({ children }) => {
                 <AccessibilityBar />
                 <Navbar />
             </header>
+
             <main>
                 <Stack
                     sx={{

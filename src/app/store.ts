@@ -69,8 +69,8 @@ const saveState = (state: AppState) => {
 const initialState: AppState = loadState() || {
     isLoggedIn: true,
     user: {
-        name: "John Doe",
-        email: "johndoe@mail.com",
+        name: "Avery Johnson",
+        email: "avery@mail.com",
     },
     cart: [],
     products: {},
