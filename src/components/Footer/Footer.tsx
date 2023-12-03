@@ -48,6 +48,7 @@ const Footer: React.FC = () => {
             color={colors.neutral[12]}
             paddingX={spacing.GLOBAL_HORIZONTAL_MARGIN}
             paddingY={4}
+            borderTop={`1px solid ${colors.neutral[5]}`}
             direction={"column"}
             alignItems={"center"}
             gap={4}

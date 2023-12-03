@@ -15,13 +15,16 @@ import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 import { Logout, Person } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState, loggedIn, loggedOut } from "../../app/store";
-import { ColorModeContext, checkLocalStorageTheme } from "../../theme";
+import { ColorModeContext, checkLocalStorageTheme, tokens } from "../../theme";
+import { useTheme } from "@emotion/react";
 
 const UserAvatarDrawer: React.FC = () => {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
     const dispatch = useDispatch();
     const colorMode = useContext(ColorModeContext);
+    const theme = useTheme();
+    const colors = tokens(theme.palette.mode);
 
     const isLoggedIn = useSelector((state: any) => state.user.isLoggedIn);
     const userData = useSelector((state: RootState) => state.user);
@@ -43,7 +46,7 @@ const UserAvatarDrawer: React.FC = () => {
             <Stack
                 direction={"row"}
                 alignItems={"center"}
-                gap={2}
+                gap={1.75}
                 sx={{ cursor: "pointer" }}
                 tabIndex={0}
                 onClick={handleClicked}
@@ -51,6 +54,7 @@ const UserAvatarDrawer: React.FC = () => {
                 aria-haspopup="true"
                 aria-expanded={open ? "true" : undefined}
                 role="button"
+                borderRadius={2}
                 id="menubutton1"
                 onKeyDown={(e: any) => {
                     if (

@@ -9,10 +9,15 @@ import {
     Typography,
 } from "@mui/material";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { loggedIn } from "../../app/store";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm: React.FC<{ onToggle: () => void }> = ({ onToggle }) => {
     const [showPassword, setShowPassword] = useState(false);
     const handleClickShowPassword = () => setShowPassword(!showPassword);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -48,7 +53,16 @@ const LoginForm: React.FC<{ onToggle: () => void }> = ({ onToggle }) => {
                 </Stack>
             </Stack>
 
-            <Stack component="form" gap={2} py={4}>
+            <Stack
+                component="form"
+                gap={2}
+                py={4}
+                onSubmit={(e: any) => {
+                    e.preventDefault();
+                    dispatch(loggedIn());
+                    navigate("/");
+                }}
+            >
                 <Stack>
                     <InputLabel htmlFor="email-usuario">E-mail</InputLabel>
                     <TextField
@@ -56,6 +70,8 @@ const LoginForm: React.FC<{ onToggle: () => void }> = ({ onToggle }) => {
                         placeholder="joao@mail.com"
                         variant="outlined"
                         type="email"
+                        required
+                        aria-required
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
@@ -64,10 +80,13 @@ const LoginForm: React.FC<{ onToggle: () => void }> = ({ onToggle }) => {
                     <InputLabel htmlFor="email-usuario">Senha</InputLabel>
                     <TextField
                         id="senha-usuario"
-                        placeholder="Digite sua senha"
+                        placeholder="Batata1234"
                         variant="outlined"
+                        required
+                        aria-required
                         type={showPassword ? "text" : "password"}
                         value={password}
+                        helperText="Oito ou mais caracteres, com pelo menos uma letra minúscula e uma maiúscula"
                         onChange={(e) => setPassword(e.target.value)}
                         InputProps={{
                             endAdornment: (
@@ -87,10 +106,7 @@ const LoginForm: React.FC<{ onToggle: () => void }> = ({ onToggle }) => {
                         }}
                     />
                 </Stack>
-                <Button
-                    variant="contained"
-                    onClick={() => console.log(email, password)}
-                >
+                <Button variant="contained" type="submit">
                     Entrar
                 </Button>
             </Stack>

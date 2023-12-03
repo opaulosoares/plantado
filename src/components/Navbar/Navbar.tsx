@@ -23,7 +23,7 @@ const Navbar: React.FC = () => {
     // const colorMode = useContext(ColorModeContext);
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
-    const isLoggedIn = useSelector((state: any) => state.user.isLoggedIn);
+    const isLoggedIn = useSelector((state: RootState) => state.isLoggedIn);
     const navigate = useNavigate();
     const [inputValue, setInputValue] = useState("");
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -77,8 +77,7 @@ const Navbar: React.FC = () => {
                 <Stack
                     direction={"row"}
                     alignItems={"center"}
-                    px={{ md: 4, lg: 8, xl: 16 }}
-                    gap={2}
+                    gap={4}
                     sx={{ display: { xs: "none", md: "flex" } }}
                 >
                     <NavLink
@@ -87,7 +86,7 @@ const Navbar: React.FC = () => {
                         style={(isActive) => {
                             return {
                                 borderBottom: isActive.isActive
-                                    ? "1px solid white"
+                                    ? `2px solid ${colors.grass[9]}`
                                     : "",
                             };
                         }}
@@ -100,7 +99,7 @@ const Navbar: React.FC = () => {
                         style={(isActive) => {
                             return {
                                 borderBottom: isActive.isActive
-                                    ? "1px solid white"
+                                    ? `2px solid ${colors.grass[9]}`
                                     : "",
                             };
                         }}
@@ -113,7 +112,7 @@ const Navbar: React.FC = () => {
                         style={(isActive) => {
                             return {
                                 borderBottom: isActive.isActive
-                                    ? "1px solid white"
+                                    ? `2px solid ${colors.grass[9]}`
                                     : "",
                             };
                         }}
@@ -126,7 +125,7 @@ const Navbar: React.FC = () => {
                         style={(isActive) => {
                             return {
                                 borderBottom: isActive.isActive
-                                    ? "1px solid white"
+                                    ? `2px solid ${colors.grass[9]}`
                                     : "",
                             };
                         }}
@@ -135,56 +134,13 @@ const Navbar: React.FC = () => {
                     </NavLink>
                 </Stack>
                 <Stack
-                    width={"100%"}
-                    sx={{ display: { xs: "none", lg: "flex" } }}
-                >
-                    <Paper
-                        sx={{
-                            p: "0.25rem 1rem",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            width: "100%",
-                            gap: 1,
-                            border: `1px solid ${colors.neutral[7]}`,
-                        }}
-                        elevation={0}
-                        component="form"
-                    >
-                        <InputBase
-                            size="medium"
-                            id="busca"
-                            placeholder={`Digite o título do produto: "Vaso de planta" `}
-                            value={inputValue}
-                            fullWidth={true}
-                            onChange={(event) =>
-                                setInputValue(event.target.value)
-                            }
-                            tabIndex={0}
-                        />
-                        <IconButton
-                            color="primary"
-                            type="submit"
-                            sx={{
-                                background: colors.grass[12],
-                                color: colors.grass[1],
-                            }}
-                            onClick={() => alert("busca")}
-                        >
-                            <Search />
-                        </IconButton>
-                    </Paper>
-                </Stack>
-                <Stack
                     justifyContent={"center"}
                     alignItems={"center"}
                     direction={"row"}
                     gap={2}
                 >
                     {isLoggedIn ? (
-                        <div aria-label="informações usuário">
-                            <UserAvatarDrawer />
-                        </div>
+                        <UserAvatarDrawer />
                     ) : (
                         <Button
                             variant="contained"
@@ -226,15 +182,18 @@ const Navbar: React.FC = () => {
                             <UserAvatarDrawer />
                         </div>
                     ) : (
-                        <Button
-                            variant="contained"
-                            onClick={() => navigate("/entrar")}
-                            tabIndex={0}
-                            aria-label="entrar"
-                            aria-details="Botão para entrar na conta do usuário."
-                        >
-                            Entrar
-                        </Button>
+                        <Stack gap={2}>
+                            <Button
+                                variant="contained"
+                                onClick={() => navigate("/entrar")}
+                                tabIndex={0}
+                                aria-label="entrar"
+                                aria-details="Botão para entrar na conta do usuário."
+                            >
+                                Entrar
+                            </Button>
+                            <ThemeSwitcher />
+                        </Stack>
                     )}
                     <Stack
                         sx={{
@@ -248,7 +207,7 @@ const Navbar: React.FC = () => {
                             style={(isActive) => {
                                 return {
                                     borderBottom: isActive.isActive
-                                        ? "1px solid white"
+                                        ? `2px solid ${colors.grass[9]}`
                                         : "",
                                 };
                             }}
@@ -261,7 +220,7 @@ const Navbar: React.FC = () => {
                             style={(isActive) => {
                                 return {
                                     borderBottom: isActive.isActive
-                                        ? "1px solid white"
+                                        ? `2px solid ${colors.grass[9]}`
                                         : "",
                                 };
                             }}
@@ -274,7 +233,7 @@ const Navbar: React.FC = () => {
                             style={(isActive) => {
                                 return {
                                     borderBottom: isActive.isActive
-                                        ? "1px solid white"
+                                        ? `2px solid ${colors.grass[9]}`
                                         : "",
                                 };
                             }}
@@ -287,7 +246,7 @@ const Navbar: React.FC = () => {
                             style={(isActive) => {
                                 return {
                                     borderBottom: isActive.isActive
-                                        ? "1px solid white"
+                                        ? `2px solid ${colors.grass[9]}`
                                         : "",
                                 };
                             }}
