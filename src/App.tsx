@@ -11,6 +11,7 @@ import ProductCategoriesPage from "./pages/ProductsCategoriesPage/ProductsPage";
 import ProductPage from "./pages/ProductPage/ProductPage";
 import CheckoutPage from "./pages/CheckoutPage/CheckoutPage";
 import Error404Page from "./pages/Error404Page/Error404Page";
+import ScrollToTop from "./app/scrollToTop";
 
 function App() {
     const [theme, colorMode] = useMode();
@@ -21,6 +22,7 @@ function App() {
                 <CssBaseline />
                 <VLibras forceOnload={true} />
                 <Router>
+                    <ScrollToTop />
                     <Routes>
                         <Route path="/" element={<Homepage />} />
                         <Route path="/entrar" element={<LoginPage />} />

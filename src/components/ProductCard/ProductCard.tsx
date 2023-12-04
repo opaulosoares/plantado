@@ -26,7 +26,6 @@ const ProductCard = ({ produto }: { produto: Product }) => {
                 width: "100%",
                 height: "100%",
             }}
-            onClick={() => navigate(`/produto/${produto.id}`)}
         >
             <Box
                 sx={{
@@ -89,7 +88,11 @@ const ProductCard = ({ produto }: { produto: Product }) => {
                     ) : null}
                 </Stack>
 
-                <Stack gap={1} py={2}>
+                <Stack
+                    gap={1}
+                    py={2}
+                    onClick={() => navigate(`/produto/${produto.id}`)}
+                >
                     <Typography variant="h4" component="h4" tabIndex={0}>
                         {produto.name}
                     </Typography>
@@ -142,10 +145,13 @@ const ProductCard = ({ produto }: { produto: Product }) => {
                                         sx={{
                                             textDecoration: "line-through",
                                         }}
+                                        color={colors.neutral[10]}
                                         tabIndex={0}
                                         aria-label={"Preço original"}
                                     >
-                                        {`R$ ${produto.price}`}
+                                        {`R$ ${produto.price.toLocaleString(
+                                            "pt-BR"
+                                        )}`}
                                     </Typography>
                                     <Typography
                                         variant="h3"
@@ -154,7 +160,9 @@ const ProductCard = ({ produto }: { produto: Product }) => {
                                         tabIndex={0}
                                         aria-label={`Preço com desconto`}
                                     >
-                                        {`R$ ${produto.discountedPrice}`}
+                                        {`R$ ${produto.discountedPrice.toLocaleString(
+                                            "pt-BR"
+                                        )}`}
                                     </Typography>
                                 </>
                             ) : (
@@ -164,7 +172,9 @@ const ProductCard = ({ produto }: { produto: Product }) => {
                                     tabIndex={0}
                                     aria-label={`Preço do produto`}
                                 >
-                                    {`R$ ${produto.price}`}
+                                    {`R$ ${produto.price.toLocaleString(
+                                        "pt-BR"
+                                    )}`}
                                 </Typography>
                             )}
                         </Stack>

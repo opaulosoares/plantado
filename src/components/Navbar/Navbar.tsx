@@ -140,7 +140,9 @@ const Navbar: React.FC = () => {
                     gap={2}
                 >
                     {isLoggedIn ? (
-                        <UserAvatarDrawer />
+                        <Stack sx={{ display: { xs: "none", md: "flex" } }}>
+                            <UserAvatarDrawer />
+                        </Stack>
                     ) : (
                         <Button
                             variant="contained"

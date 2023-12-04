@@ -3,6 +3,7 @@ import db from "../../data/db.json";
 import ProductCard from "../ProductCard/ProductCard";
 import { Grid, Stack, Typography } from "@mui/material";
 import { NavLink, useNavigate } from "react-router-dom";
+import { Loyalty } from "@mui/icons-material";
 const CurrentCampaignSection: React.FC = () => {
     const navigate = useNavigate();
     const produtosComDesconto = [
@@ -22,6 +23,7 @@ const CurrentCampaignSection: React.FC = () => {
                     tabIndex={0}
                     aria-label="Ofertas"
                 >
+                    <Loyalty sx={{ mr: 1 }} />
                     Ofertas válidas até o término do estoque
                 </Typography>
                 <Typography
@@ -42,12 +44,8 @@ const CurrentCampaignSection: React.FC = () => {
                             md={4}
                             lg={3}
                             xl={2.4}
-                            height={"100%"}
                         >
-                            <ProductCard
-                                onClick={() => navigate("/product")}
-                                produto={produto}
-                            />
+                            <ProductCard produto={produto} />
                         </Grid>
                     ))}
                 </Grid>

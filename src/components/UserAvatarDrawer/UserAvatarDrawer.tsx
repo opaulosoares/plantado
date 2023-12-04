@@ -134,7 +134,9 @@ const UserAvatarDrawer: React.FC = () => {
                 <Avatar
                     imgProps={{ loading: "lazy" }}
                     src="https://thispersondoesnotexist.com"
-                />
+                >
+                    {userData.name}
+                </Avatar>
             </Stack>
 
             <Menu
