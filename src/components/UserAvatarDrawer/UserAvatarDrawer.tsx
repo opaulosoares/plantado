@@ -133,7 +133,7 @@ const UserAvatarDrawer: React.FC = () => {
             >
                 <Avatar
                     imgProps={{ loading: "lazy" }}
-                    src="https://thispersondoesnotexist.com"
+                    src="https://placekitten.com/40/40"
                 >
                     {userData.name}
                 </Avatar>

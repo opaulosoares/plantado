@@ -1,9 +1,11 @@
 import { ProductionQuantityLimits, ShoppingCart } from "@mui/icons-material";
 import {
+    Alert,
     Badge,
     Button,
     Drawer,
     IconButton,
+    Snackbar,
     Stack,
     Typography,
     useTheme,
@@ -22,6 +24,7 @@ import {
 import { tokens } from "../../theme";
 import CartItem from "./CartItem/CartItem";
 import "./index.css";
+import { render } from "react-dom";
 
 const aggregateProducts = (products: Product[]): CartProduct[] => {
     return Object.values(
@@ -55,6 +58,9 @@ const Cart: React.FC = () => {
     const cartItems = useSelector((state: RootState) => state.cart);
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
+    const isLoggedIn = useSelector((state: RootState) => state.isLoggedIn);
+    const [showSnackbar, setShowSnackbar] = useState(false);
+
     const cartProducts = useMemo(
         () => aggregateProducts(cartItems),
         [cartItems]
@@ -73,6 +79,10 @@ const Cart: React.FC = () => {
 
     const handleRemove = (product: CartProduct) => {
         dispatch(removeFromCart(product.id));
+    };
+
+    const handleSnackbarClose = () => {
+        setShowSnackbar(false);
     };
 
     return (
@@ -148,14 +158,42 @@ const Cart: React.FC = () => {
                             variant="contained"
                             color="primary"
                             size="large"
-                            onClick={() => navigate("/checkout")}
+                            onClick={() => {
+                                if (isLoggedIn) {
+                                    navigate("/checkout");
+                                } else {
+                                    setShowSnackbar(true);
+                                    navigate("/entrar");
+                                }
+                            }}
                             sx={{ width: "100%", marginTop: 2 }}
+                            disabled={cartProducts.length === 0}
                         >
                             Finalizar compra
                         </Button>
                     </Stack>
                 </Stack>
             </Drawer>
+            <Snackbar
+                open={showSnackbar}
+                anchorOrigin={{ vertical: "top", horizontal: "center" }}
+                onClose={handleSnackbarClose}
+                autoHideDuration={5000}
+                role="alert"
+                aria-live="assertive"
+                aria-atomic="true"
+            >
+                <Alert
+                    onClose={handleSnackbarClose}
+                    severity="error"
+                    sx={{ width: "100%" }}
+                    role="alertdialog"
+                    aria-label="entrar para prosseguir compra"
+                    aria-description="Necessário entrar na plataforma para prosseguir"
+                >
+                    Necessário entrar na plataforma para prosseguir
+                </Alert>
+            </Snackbar>
         </>
     );
 };
