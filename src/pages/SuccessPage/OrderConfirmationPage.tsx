@@ -11,8 +11,7 @@ import {
     tokens,
 } from "../../theme";
 import { useNavigate } from "react-router-dom";
-
-
+import BasePage from "../../templates/BasePage/BasePage";
 
 const OrderConfirmationPage: React.FC = () => {
     const colorMode = useContext(ColorModeContext);
@@ -21,82 +20,58 @@ const OrderConfirmationPage: React.FC = () => {
     const navigate = useNavigate();
 
     const handleGoBack = () => {
-      navigate('/');
+        navigate("/");
     };
     return (
-        <>
-            <header>
-                <AccessibilityBar />
-                <Navbar />
-            </header>
-            <main>
+        <BasePage>
             <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "70vh", // Ajuste conforme necessário
-            backgroundColor: colors.grass[1],
-            color: colors.neutral[12],
-            width: "50vw",
-            maxWidth: "100%",
-            maxHeight: "100%",
-            margin: "5vh 25vw",
-            padding: "2vh 3vw"
-          }}
-        >
-          <Typography style={{
-            color: colors.neutral[12],
-            fontSize: "1.7rem",
-            margin: "1vh 3vw",
-            maxWidth: "100%",
-            maxHeight: "100%",
-            }} variant="h4" gutterBottom>
-            Nós agradecemos a preferência!
-          </Typography>
-          <img 
-          src="https://cdn-icons-png.flaticon.com/512/148/148767.png"
-          style={{ width: "50%", maxWidth: "200px", height: "auto" }}
+                sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backgroundColor: colors.grass[1],
+                    color: colors.neutral[12],
+                    py: 8,
+                }}
+            >
+                <Typography variant="h2" gutterBottom my={2}>
+                    Nós agradecemos a preferência!
+                </Typography>
+                <img
+                    src="https://cdn-icons-png.flaticon.com/512/148/148767.png"
+                    style={{ width: "50%", maxWidth: "100px", height: "auto" }}
+                ></img>
 
-          ></img>
+                <Typography variant="body1" my={2}>
+                    Seu pedido foi confirmado e possui o código
+                    #1anJxs723957uKDTopz!
+                </Typography>
 
-          <Typography style={{color: colors.neutral[12],
-            fontSize: "1.7rem",
-            margin: "1vh 3vw",
-            maxWidth: "100%",
-            maxHeight: "100%",
-            textAlign: "center"
+                <Typography
+                    style={{
+                        fontSize: "1.3rem",
+                        margin: "1vh 3vw",
+                        textAlign: "center",
+                    }}
+                    variant="body2"
+                    paragraph
+                >
+                    O rastreamento do pedido vai aparecer em “Minha Conta” na
+                    aba de Pedidos!
+                </Typography>
+                <Button
+                    onClick={handleGoBack}
+                    variant="contained"
+                    sx={{ mt: 8 }}
+                >
+                    Voltar para a loja
+                </Button>
+                {/* Div específica parabenizando pela compra */}
 
-
-          }}  variant="body2" paragraph>
-            Seu pedido foi confirmado e possui o código #1anJxs723957uKDTopz!
-          </Typography>
-
-          <Typography style={{color: colors.neutral[12],
-            fontSize: "1.3rem",
-            margin: "1vh 3vw",
-            textAlign: "center"
-
-          }}  variant="body2" paragraph>
-          O rastreamento do pedido vai aparecer em “Minha Conta” na aba de Pedidos!
-          </Typography>
-          <Button onClick={handleGoBack} style={{
-            backgroundColor: colors.neutral[12],
-            color:colors.grass[1],
-            width: "30%",
-            height: "10%",
-            padding: "2%",
-            marginTop: "5%"
-          }}>
-            Voltar para a loja
-          </Button>
-          {/* Div específica parabenizando pela compra */}
-          
-          <Divider sx={{ my: 2 }} />
-        </Box>
-            </main>
-        </>
+                <Divider sx={{ my: 2 }} />
+            </Box>
+        </BasePage>
     );
 };
 

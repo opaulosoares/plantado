@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import db from "../../data/db.json";
-import { Link, NavLink, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import {
     Avatar,
     Button,
@@ -12,22 +12,16 @@ import {
     Typography,
 } from "@mui/material";
 import BasePage from "../../templates/BasePage/BasePage";
-import {
-    AddShoppingCart,
-    ArrowBack,
-    BackHand,
-    Loyalty,
-} from "@mui/icons-material";
+import { AddShoppingCart, ArrowBack } from "@mui/icons-material";
 import ProductCard from "../../components/ProductCard/ProductCard";
-import { RootState } from "../../app/store";
-import { useSelector } from "react-redux";
+import { RootState, addToCart } from "../../app/store";
+import { useDispatch, useSelector } from "react-redux";
 
 const CommentSection: React.FC = () => {
     const [comments, setComments] = useState<string[]>([]);
     const [newComment, setNewComment] = useState<string>("");
     const isLoggedIn = useSelector((state: RootState) => state.isLoggedIn);
     const userData = useSelector((state: RootState) => state.user);
-
     const handleCommentSubmit = () => {
         if (newComment.trim() !== "") {
             setComments((prevComments) => [...prevComments, newComment]);
@@ -80,7 +74,10 @@ const CommentSection: React.FC = () => {
                                 borderRadius: 4,
                             }}
                         >
-                            <Avatar src={u} alt="User" />
+                            <Avatar
+                                src={"https://placekitten.com/40/40"}
+                                alt="User"
+                            />
                             <Typography tabIndex={0} aria-label={`Comentário`}>
                                 {comment}
                             </Typography>
@@ -168,6 +165,8 @@ const RecommendedProducts: React.FC = () => {
 const ProductPage: React.FC = () => {
     const navigate = useNavigate();
     const { id: unsafe_category } = useParams();
+    const dispatch = useDispatch();
+
     const produto = useMemo(() => {
         const id = Number(unsafe_category);
         return (
@@ -286,6 +285,7 @@ const ProductPage: React.FC = () => {
                                     variant="contained"
                                     aria-label="adicionar-carrinho"
                                     aria-description="Botão que permite usuário a adicionar produto ao carrinho"
+                                    onClick={() => dispatch(addToCart(produto))}
                                 >
                                     Adicionar ao carrinho
                                 </Button>

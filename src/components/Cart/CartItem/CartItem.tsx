@@ -7,6 +7,7 @@ import {
     Typography,
     Button,
     IconButton,
+    CardActionArea,
 } from "@mui/material";
 import { CartProduct } from "../../../app/store";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
@@ -25,7 +26,7 @@ function CartItem(props: Props) {
     const { item, onAdd, onRemove, onSubtract } = props;
 
     return (
-        <Card key={item.id}>
+        <Card key={item.id} sx={{ px: 1 }}>
             <Stack direction="row">
                 <CardMedia
                     component="img"
@@ -33,8 +34,15 @@ function CartItem(props: Props) {
                     image={item.image}
                     alt={item.alt_text}
                 />
-                <CardContent sx={{ flex: 1, position: "relative" }}>
-                    <Typography variant="h6">{item.name}</Typography>
+                <CardContent sx={{ flex: 1 }}>
+                    <Typography
+                        variant="h4"
+                        tabIndex={0}
+                        aria-label="nome-item"
+                        aria-description="Nome do item no carrinho"
+                    >
+                        {item.name}
+                    </Typography>
 
                     <Stack
                         direction="row"
@@ -44,29 +52,46 @@ function CartItem(props: Props) {
                             variant="subtitle2"
                             color="primary"
                             fontWeight={"bold"}
+                            tabIndex={0}
+                            aria-label="preço-item"
+                            aria-description="Preço do item citado"
                         >
                             R$ {item.price.toLocaleString("pt-BR")}
                         </Typography>
-                        <Typography variant="subtitle2" color="text.secondary">
+                        <Typography
+                            variant="subtitle2"
+                            color="text.secondary"
+                            tabIndex={0}
+                            aria-label="quantidade-item"
+                            aria-description="Quantidade do item citado"
+                        >
                             x{item.qty}
                         </Typography>
                     </Stack>
-            <Stack className="card-item-btn-container" gap={1} direction="row">
+                    <Stack
+                        direction="row"
+                        justifyContent={"flex-end"}
+                        gap={2}
+                        pt={2}
+                    >
                         <IconButton
                             onClick={onRemove}
-                            aria-label="Excluir produto"
+                            aria-label="excluir-produto"
+                            aria-description="Excluir produto"
                         >
                             <DeleteOutlineIcon />
                         </IconButton>
                         <IconButton
                             onClick={onSubtract}
-                            aria-label="Subtrair quantidade de produto"
+                            aria-label="subtrair-quantidade"
+                            aria-description="Subtrair quantidade de produto"
                         >
                             <RemoveIcon />
                         </IconButton>
                         <IconButton
                             onClick={onAdd}
-                            aria-label="Aumentar quantidade de produto"
+                            aria-label="adicionar-quantidade"
+                            aria-description="Aumentar quantidade de produto"
                         >
                             <AddIcon />
                         </IconButton>

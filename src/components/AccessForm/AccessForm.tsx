@@ -1,14 +1,17 @@
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import {
+    Alert,
     Button,
+    Divider,
     IconButton,
     InputAdornment,
     InputLabel,
+    Snackbar,
     Stack,
     TextField,
     Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { loggedIn } from "../../app/store";
 import { useNavigate } from "react-router-dom";
@@ -124,6 +127,9 @@ const LoginForm: React.FC<{ onToggle: () => void }> = ({ onToggle }) => {
 };
 
 const SignUpForm: React.FC<{ onToggle: () => void }> = ({ onToggle }) => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const [cadastrado, setCadastrado] = useState(false);
     return (
         <Stack>
             <Stack
@@ -156,7 +162,9 @@ const SignUpForm: React.FC<{ onToggle: () => void }> = ({ onToggle }) => {
             </Stack>
 
             <Stack component="form" gap={2} py={4}>
-                <Stack>
+                <Typography variant="h3">Dados Pessoais</Typography>
+                <Divider />
+                <Stack gap={1}>
                     <InputLabel htmlFor="nome-completo">
                         Nome completo
                     </InputLabel>
@@ -167,7 +175,7 @@ const SignUpForm: React.FC<{ onToggle: () => void }> = ({ onToggle }) => {
                         type="text"
                     />
                 </Stack>
-                <Stack>
+                <Stack gap={1}>
                     <InputLabel htmlFor="email-usuario">E-mail</InputLabel>
                     <TextField
                         id="email-usuario"
@@ -176,8 +184,130 @@ const SignUpForm: React.FC<{ onToggle: () => void }> = ({ onToggle }) => {
                         type="email"
                     />
                 </Stack>
+                <Stack gap={1}>
+                    <InputLabel htmlFor="senha-usuario">Senha</InputLabel>
+                    <TextField
+                        id="senha-usuario"
+                        placeholder="Batata1234"
+                        variant="outlined"
+                        type="password"
+                        helperText="Oito ou mais caracteres, com pelo menos uma letra minúscula e uma maiúscula"
+                    />
+                </Stack>
+                <Stack gap={1}>
+                    <InputLabel htmlFor="senha-usuario">
+                        Confirme sua senha
+                    </InputLabel>
+                    <TextField
+                        id="senha-usuario"
+                        placeholder="Batata1234"
+                        variant="outlined"
+                        type="password"
+                    />
+                </Stack>
             </Stack>
-            <Button onClick={onToggle}>Já é cliente? Entre aqui</Button>
+            <Stack component="form" gap={2} py={4}>
+                <Typography variant="h3">Endereço</Typography>
+                <Divider />
+                <Stack gap={1}>
+                    <InputLabel htmlFor="zipCode">CEP</InputLabel>
+                    <TextField
+                        id="zipCode"
+                        name="zipCode"
+                        type="text"
+                        variant="outlined"
+                        fullWidth
+                        required
+                        autoFocus
+                        placeholder="Ex: 12.345-678"
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                    />
+                </Stack>
+                <Stack gap={1}>
+                    <InputLabel htmlFor="city">Cidade</InputLabel>
+                    <TextField
+                        id="city"
+                        name="city"
+                        type="text"
+                        variant="outlined"
+                        fullWidth
+                        required
+                        autoFocus
+                        placeholder="Ex: São Paulo"
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                    />
+                </Stack>
+
+                <Stack gap={1}>
+                    <InputLabel htmlFor="state">Estado</InputLabel>
+                    <TextField
+                        id="state"
+                        name="state"
+                        type="text"
+                        variant="outlined"
+                        placeholder="Ex: SP"
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                    />
+                </Stack>
+                <Stack gap={1}>
+                    <InputLabel htmlFor="street">Rua</InputLabel>
+                    <TextField
+                        id="street"
+                        name="street"
+                        type="text"
+                        variant="outlined"
+                        fullWidth
+                        required
+                        autoFocus
+                        placeholder="Ex: Rua ABC"
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                    />
+                </Stack>
+
+                <Stack gap={1}>
+                    <InputLabel htmlFor="number">Número</InputLabel>
+                    <TextField
+                        id="number"
+                        name="number"
+                        type="text"
+                        variant="outlined"
+                        fullWidth
+                        required
+                        autoFocus
+                        placeholder="Ex: 123"
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                    />
+                </Stack>
+            </Stack>
+            <Stack gap={2}>
+                <Button
+                    variant="contained"
+                    onClick={() => {
+                        setCadastrado(true);
+                        setTimeout(() => {
+                            onToggle();
+                        }, 2000);
+                    }}
+                >
+                    Finalizar cadastro
+                </Button>
+                <Snackbar open={cadastrado}>
+                    <Alert severity="success">
+                        Cadastro realizado com sucesso!
+                    </Alert>
+                </Snackbar>
+                <Button onClick={onToggle}>Já é cliente? Entre aqui</Button>
+            </Stack>
         </Stack>
     );
 };
@@ -188,6 +318,11 @@ const AccessForm: React.FC = () => {
     const handleToggleForm = () => {
         setShowLoginForm(!showLoginForm);
     };
+
+    // useEffect to scroll to top everytime it changes form
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [showLoginForm]);
 
     return (
         <section style={{ height: "100%" }}>

@@ -67,7 +67,7 @@ const saveState = (state: AppState) => {
 
 // Estado inicial
 const initialState: AppState = loadState() || {
-    isLoggedIn: true,
+    isLoggedIn: false,
     user: {
         name: "Avery Johnson",
         email: "avery@mail.com",
