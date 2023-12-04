@@ -114,7 +114,7 @@ const LoginForm: React.FC<{ onToggle: () => void }> = ({ onToggle }) => {
                 direction={{ xs: "column", md: "row" }}
                 justifyContent={{ md: "space-between" }}
             >
-                <Button onClick={onToggle}>Esqueceu a senha?</Button>
+                <Button>Esqueceu a senha?</Button>
                 <Button onClick={onToggle}>
                     Não é cliente? Cadastre-se aqui
                 </Button>

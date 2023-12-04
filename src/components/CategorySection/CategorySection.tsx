@@ -9,12 +9,14 @@ import {
     Typography,
 } from "@mui/material";
 import { Category } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 
 interface CategoryCardProps {
     category: CategoryMap;
 }
 
 const CategoryCard: React.FC<CategoryCardProps> = ({ category }) => {
+    const navigate = useNavigate();
     return (
         <Card
             sx={{
@@ -22,6 +24,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ category }) => {
                 flexGrow: 1,
                 flexDirection: "column",
             }}
+            onClick={() => navigate(category.route)}
         >
             <CardMedia image={category.img} sx={{ height: 128 }} />
             <CardHeader title={category.label} />

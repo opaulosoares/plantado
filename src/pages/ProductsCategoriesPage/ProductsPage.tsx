@@ -1,12 +1,22 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import SearchIcon from "@mui/icons-material/Search";
-import { Alert, AlertTitle, Grid, Typography } from "@mui/material";
+import {
+    Alert,
+    AlertTitle,
+    Button,
+    Divider,
+    Grid,
+    Stack,
+    Typography,
+} from "@mui/material";
 import BasePage from "../../templates/BasePage/BasePage";
 import "./index.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { useMemo } from "react";
 import db from "../../data/db.json";
 import ProductCard from "../../components/ProductCard/ProductCard";
+import { Filter, FilterList } from "@mui/icons-material";
+import { Divide } from "react-feather";
 
 function capitalize(s: string) {
     return s[0].toUpperCase() + s.slice(1);
@@ -70,7 +80,17 @@ function ProductCategoriesPage() {
                     planta certa.
                 </Typography>
             </Alert>
-            <Grid container spacing={2} marginTop={3}>
+            <Stack mt={2} alignItems={"flex-start"}>
+                <Button
+                    variant="outlined"
+                    color="primary"
+                    startIcon={<FilterList />}
+                >
+                    Filtros
+                </Button>
+            </Stack>
+            <Divider sx={{ my: 2, width: "100%" }} />
+            <Grid container spacing={2}>
                 {products.map((item: any) => (
                     <Grid
                         key={item.id}

@@ -25,8 +25,7 @@ function RecommendedProducts(props: Props) {
             alignItems={"center"}
             gap={4}
             sx={{
-                height: "calc(100vh - 250px)",
-                overflow: "auto",
+                height: "100%",
                 px: 32,
                 width: "100%",
             }}

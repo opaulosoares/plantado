@@ -6,6 +6,7 @@ import {
     CardContent,
     Typography,
     Button,
+    IconButton,
 } from "@mui/material";
 import { CartProduct } from "../../../app/store";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
@@ -50,28 +51,25 @@ function CartItem(props: Props) {
                             x{item.qty}
                         </Typography>
                     </Stack>
-                    <Stack className="card-item-btn-container" direction="row">
-                        <button
+            <Stack className="card-item-btn-container" gap={1} direction="row">
+                        <IconButton
                             onClick={onRemove}
-                            className="card-item-btn"
                             aria-label="Excluir produto"
                         >
-                            <DeleteOutlineIcon sx={{ fontSize: 16 }} />
-                        </button>
-                        <button
+                            <DeleteOutlineIcon />
+                        </IconButton>
+                        <IconButton
                             onClick={onSubtract}
-                            className="card-item-btn"
                             aria-label="Subtrair quantidade de produto"
                         >
-                            <RemoveIcon sx={{ fontSize: 16 }} />
-                        </button>
-                        <button
+                            <RemoveIcon />
+                        </IconButton>
+                        <IconButton
                             onClick={onAdd}
-                            className="card-item-btn"
                             aria-label="Aumentar quantidade de produto"
                         >
-                            <AddIcon sx={{ fontSize: 16 }} />
-                        </button>
+                            <AddIcon />
+                        </IconButton>
                     </Stack>
                 </CardContent>
             </Stack>

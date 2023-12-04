@@ -48,8 +48,8 @@ function RecommendationSurveySection(props: Readonly<Props>) {
     };
 
     return (
-        <form style={{ height: "calc(100vh - 250px)" }}>
-            <Stack sx={{ gap: 3, height: "100%", px: 32 }}>
+        <form style={{ height: "100%" }}>
+            <Stack sx={{ gap: 3, height: "100%", px: 32, pt: 6 }}>
                 {questions.map((item) => (
                     <FormControl
                         key={item.question}
@@ -59,7 +59,7 @@ function RecommendationSurveySection(props: Readonly<Props>) {
                             borderRadius: 2,
                         }}
                     >
-                        <FormLabel>{item.question}</FormLabel>
+                        <FormLabel tabIndex={0}>{item.question}</FormLabel>
                         <RadioGroup
                             row
                             name={item.question}
@@ -78,6 +78,7 @@ function RecommendationSurveySection(props: Readonly<Props>) {
                                     value={item2.value}
                                     control={<Radio />}
                                     label={item2.text}
+                                    tabIndex={0}
                                 />
                             ))}
                         </RadioGroup>

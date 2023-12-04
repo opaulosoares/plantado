@@ -23,7 +23,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
     return (
         <Stack
             sx={{
-                py: { xs: 12, md: 16 },
+                py: { xs: 3, md: 6 },
                 px: { xs: 4, md: 8 },
                 justifyContent: "center",
                 alignItems: "center",
@@ -32,7 +32,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 bgcolor: colors.grass[5],
                 width: "100%",
                 borderRadius: 2,
-                my: 4,
+                mb: 4,
             }}
         >
             <Stack
