@@ -28,6 +28,8 @@ function RecommendedProducts(props: Props) {
                 height: "100%",
                 px: 32,
                 width: "100%",
+                paddingLeft: 0,
+                paddingRight: 0
             }}
         >
             <Grid container spacing={2} height={"100%"}>
