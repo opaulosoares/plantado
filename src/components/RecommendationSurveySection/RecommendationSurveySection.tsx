@@ -49,7 +49,8 @@ function RecommendationSurveySection(props: Readonly<Props>) {
 
     return (
         <form style={{ height: "100%" }}>
-            <Stack sx={{ gap: 3, height: "100%", px: 32, pt: 6 }}>
+            <Stack sx={{ gap: 3, height: "100%", px: 32, pt: 6,  paddingLeft: 0,
+                paddingRight: 0 }}>
                 {questions.map((item) => (
                     <FormControl
                         key={item.question}
