@@ -30,9 +30,9 @@ function RecommendedProducts(props: Props) {
                 width: "100%",
             }}
         >
-            <Grid container spacing={2} justifyContent={"center"}>
+            <Grid container spacing={2} height={"100%"}>
                 {products.map((item) => (
-                    <Grid key={item!.id} item xs={12} sm={6} md={4} lg={3}>
+                    <Grid key={item!.id} item xs={12} sm={6} md={4} lg={3} xl={2.4}>
                         <ProductCard produto={item as any} />
                     </Grid>
                 ))}
