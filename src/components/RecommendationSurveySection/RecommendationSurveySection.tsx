@@ -62,6 +62,9 @@ function RecommendationSurveySection(props: Readonly<Props>) {
                     >
                         <FormLabel tabIndex={0}>{item.question}</FormLabel>
                         <RadioGroup
+                            sx={{
+                               margin: "0 auto"
+                            }}
                             row
                             name={item.question}
                             value={item.selectedAnswer ?? null}
