@@ -75,23 +75,13 @@ const AccessibilityBar: React.FC = () => {
                 >
                     Ir para o menu [2]
                 </a>
-
-                <a
-                    href="#busca"
-                    role="navigation"
-                    aria-label="Ir para a busca"
-                    tabIndex={3}
-                >
-                    Ir para a busca [3]
-                </a>
-
                 <a
                     href="#rodape"
                     role="navigation"
                     aria-label="Ir para o rodapé"
                     tabIndex={4}
                 >
-                    Ir para o rodapé [4]
+                    Ir para o rodapé [3]
                 </a>
             </Stack>
             <Stack direction={"row"} gap={2}>
